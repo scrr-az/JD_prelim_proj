@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://p7dsp4eh2yuu" path="res://sprites/Screenshot_20261006_144109.png" id="3_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://1e0hot3jcfxa" path="res://sprites/Oto.jpg" id="3_h2yge"]
 [ext_resource type="Texture2D" uid="uid://bf87rr1fk1k5h" path="res://icon.svg" id="4_1bvp3"]
-[ext_resource type="Script" uid="uid://b0prwt0rdt4yb" path="res://bullet.gd" id="5_lquwl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_43ug5"]
 size = Vector2(132, 129)
@@ -18,41 +17,138 @@ specular_color = Color(0.65497863, 0.50195163, 0.53615093, 1)
 
 [node name="Node2D" type="Node2D" unique_id=106943654]
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=429233672]
+
 [node name="Player1" type="CharacterBody2D" parent="." unique_id=941688024]
+position = Vector2(-485, -124)
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("2_0xm2m")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player1" unique_id=1556005470]
-position = Vector2(228, 142)
+position = Vector2(-3.0517578e-05, -3.0517578e-05)
 scale = Vector2(0.3134328, 0.207483)
 texture = ExtResource("3_h2yge")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player1" unique_id=1826040358]
-position = Vector2(226, 142)
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_43ug5")
 
+[node name="BulletSpawn" type="Node2D" parent="Player1" unique_id=1358737202]
+position = Vector2(83, 0)
+
 [node name="Player2" type="CharacterBody2D" parent="." unique_id=2093198563]
+position = Vector2(324, -197)
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("2_0xm2m")
 is_p1 = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Player2" unique_id=1539432071]
-position = Vector2(839.5, 150)
+position = Vector2(0.99993896, 0)
 scale = Vector2(1.2300887, 0.9852941)
 texture = ExtResource("3_1bvp3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player2" unique_id=288006264]
-position = Vector2(841, 151)
+position = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_43ug5")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1015467905]
+[node name="BulletSpawn" type="Node2D" parent="Player2" unique_id=1142803336]
+position = Vector2(83, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=157915284]
-position = Vector2(533, 314)
+[node name="Wall" type="StaticBody2D" parent="." unique_id=1015467905]
+scale = Vector2(1, 1.1599998)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" unique_id=157915284]
+position = Vector2(-2, -1)
 shape = SubResource("RectangleShape2D_omdxl")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1296338062]
-position = Vector2(533, 303)
+[node name="Sprite2D" type="Sprite2D" parent="Wall" unique_id=1296338062]
+position = Vector2(-2, 0)
 scale = Vector2(0.31249988, 5.734375)
 texture = SubResource("CanvasTexture_cuehe")
 
-[node name="Bullet" type="Area2D" parent="." unique_id=1028112347]
-script = ExtResource("5_lquwl")
+[node name="Wall5" type="StaticBody2D" parent="." unique_id=608692556]
+position = Vector2(0, 420)
+rotation = 1.5707964
+scale = Vector2(1, 2.28)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall5" unique_id=692004069]
+position = Vector2(-2, -1)
+shape = SubResource("RectangleShape2D_omdxl")
+
+[node name="Wall6" type="StaticBody2D" parent="." unique_id=895096646]
+position = Vector2(0, -420)
+rotation = 1.5707964
+scale = Vector2(1, 2.2800012)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall6" unique_id=1803011779]
+position = Vector2(-2, -1)
+shape = SubResource("RectangleShape2D_omdxl")
+
+[node name="Wall3" type="StaticBody2D" parent="." unique_id=1621179912]
+position = Vector2(-816, 0)
+scale = Vector2(1, 1.2400007)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3" unique_id=285153799]
+position = Vector2(-2, -1)
+shape = SubResource("RectangleShape2D_omdxl")
+
+[node name="Wall4" type="StaticBody2D" parent="." unique_id=517701200]
+position = Vector2(816, 0)
+scale = Vector2(1, 1.2400007)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall4" unique_id=856886783]
+position = Vector2(-2, -1)
+shape = SubResource("RectangleShape2D_omdxl")
+
+[node name="Portal2" type="Area2D" parent="." unique_id=214489245 groups=["portal"]]
+position = Vector2(-855, 0)
+scale = Vector2(1, 1.3200008)
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal2" unique_id=1093530611]
+position = Vector2(-2, -1)
+shape = SubResource("RectangleShape2D_omdxl")
+debug_color = Color(0.6958949, 0.28403082, 0.9971865, 0.41960785)
+
+[node name="Portal" type="Area2D" parent="." unique_id=1888077765 groups=["portal"]]
+position = Vector2(855, 0)
+scale = Vector2(1, 1.3200008)
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal" unique_id=589142346]
+position = Vector2(-2, -1)
+shape = SubResource("RectangleShape2D_omdxl")
+debug_color = Color(0.6958949, 0.28403082, 0.9971865, 0.41960785)
+
+[node name="Portal3" type="Area2D" parent="." unique_id=1258026421 groups=["portal"]]
+position = Vector2(0, -460)
+rotation = 1.5707964
+scale = Vector2(1.213, 2.4399993)
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal3" unique_id=585584242]
+position = Vector2(-2, -1)
+shape = SubResource("RectangleShape2D_omdxl")
+debug_color = Color(0.6958949, 0.28403082, 0.9971865, 0.41960785)
+
+[node name="Portal4" type="Area2D" parent="." unique_id=1773329715 groups=["portal"]]
+position = Vector2(0, 460)
+rotation = 1.5707964
+scale = Vector2(1.213, 2.4399993)
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal4" unique_id=669399136]
+position = Vector2(-2, -1)
+shape = SubResource("RectangleShape2D_omdxl")
+debug_color = Color(0.6958949, 0.28403082, 0.9971865, 0.41960785)
