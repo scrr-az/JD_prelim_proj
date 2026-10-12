@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var max_speed = 400
 @export var accel = 2000
 @export var friction = 700000
-var bullet_path = preload("res://bullet.tscn")
+@export var bullet_scene : PackedScene
 
 var input = Vector2.ZERO
 
@@ -50,7 +50,7 @@ func player_movement(delta):
 func fire():
 	if is_p1:													# debugging, will remove later
 		if bullet_counter > 0:
-			var bullet = bullet_path.instantiate()
+			var bullet = bullet_scene.instantiate()
 			bullet.dir=$Hand.rotation
 			bullet.pos=$Hand.global_position
 			bullet.rot=$Hand.rotation

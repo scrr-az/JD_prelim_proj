@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://das8u5hnia4py"]
 
+[ext_resource type="Script" uid="uid://bwy2qn52ohfjy" path="res://main.gd" id="1_7mycd"]
 [ext_resource type="Script" uid="uid://dqbjnr2mnhc8k" path="res://player.gd" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://dyv2gvwar1uih" path="res://timer.tscn" id="2_272bh"]
 [ext_resource type="Texture2D" uid="uid://p7dsp4eh2yuu" path="res://sprites/Screenshot_20261006_144109.png" id="3_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://1e0hot3jcfxa" path="res://sprites/Oto.jpg" id="3_h2yge"]
 [ext_resource type="Texture2D" uid="uid://caiypxew6fpsg" path="res://sprites/a-hand-gripping-a-revolver-firmly-against-a-plain-transparent-background-emphasizing-gun-control-and-safety-awareness-hand-holding-revolver-on-transparent-background-free-png.png" id="3_lquwl"]
 [ext_resource type="Texture2D" uid="uid://bf87rr1fk1k5h" path="res://icon.svg" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://dqqr2y5m8ndbt" path="res://bullet.tscn" id="4_5vw27"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_43ug5"]
 size = Vector2(132, 129)
@@ -17,14 +20,18 @@ diffuse_texture = ExtResource("4_1bvp3")
 specular_color = Color(0.65497863, 0.50195163, 0.53615093, 1)
 
 [node name="Node2D" type="Node2D" unique_id=106943654]
+script = ExtResource("1_7mycd")
+timer_scene = ExtResource("2_272bh")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=429233672]
 
 [node name="Player1" type="CharacterBody2D" parent="." unique_id=941688024]
+visibility_layer = 4
 position = Vector2(-485, -124)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("2_0xm2m")
+bullet_scene = ExtResource("4_5vw27")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player1" unique_id=1556005470]
 position = Vector2(-3.0517578e-05, -3.0517578e-05)
@@ -45,10 +52,12 @@ texture = ExtResource("3_lquwl")
 flip_h = true
 
 [node name="Player2" type="CharacterBody2D" parent="." unique_id=2093198563]
+visibility_layer = 4
 position = Vector2(324, -197)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("2_0xm2m")
+bullet_scene = ExtResource("4_5vw27")
 is_p1 = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Player2" unique_id=1539432071]
@@ -70,6 +79,7 @@ texture = ExtResource("3_lquwl")
 flip_h = true
 
 [node name="Wall" type="StaticBody2D" parent="." unique_id=1015467905]
+visibility_layer = 4
 scale = Vector2(1, 1.1599998)
 collision_mask = 3
 
@@ -80,25 +90,18 @@ shape = SubResource("RectangleShape2D_omdxl")
 scale = Vector2(0.31249988, 5.734375)
 texture = SubResource("CanvasTexture_cuehe")
 
-[node name="Wall5" type="StaticBody2D" parent="." unique_id=608692556]
+[node name="Wall2" type="StaticBody2D" parent="." unique_id=608692556]
+visibility_layer = 4
 position = Vector2(0, 420)
 rotation = 1.5707964
 scale = Vector2(1, 2.28)
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall5" unique_id=692004069]
-shape = SubResource("RectangleShape2D_omdxl")
-
-[node name="Wall6" type="StaticBody2D" parent="." unique_id=895096646]
-position = Vector2(0, -420)
-rotation = 1.5707964
-scale = Vector2(1, 2.2800012)
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall6" unique_id=1803011779]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2" unique_id=692004069]
 shape = SubResource("RectangleShape2D_omdxl")
 
 [node name="Wall3" type="StaticBody2D" parent="." unique_id=1621179912]
+visibility_layer = 4
 position = Vector2(-816, 0)
 scale = Vector2(1, 1.2400007)
 collision_mask = 3
@@ -107,6 +110,7 @@ collision_mask = 3
 shape = SubResource("RectangleShape2D_omdxl")
 
 [node name="Wall4" type="StaticBody2D" parent="." unique_id=517701200]
+visibility_layer = 4
 position = Vector2(816, 0)
 scale = Vector2(1, 1.2400007)
 collision_mask = 3
@@ -114,7 +118,18 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall4" unique_id=856886783]
 shape = SubResource("RectangleShape2D_omdxl")
 
+[node name="Wall5" type="StaticBody2D" parent="." unique_id=895096646]
+visibility_layer = 4
+position = Vector2(0, -420)
+rotation = 1.5707964
+scale = Vector2(1, 2.2800012)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall5" unique_id=1803011779]
+shape = SubResource("RectangleShape2D_omdxl")
+
 [node name="Portal" type="Area2D" parent="." unique_id=1888077765 groups=["portal"]]
+visibility_layer = 4
 position = Vector2(877, 0)
 scale = Vector2(2, 2)
 collision_layer = 8
@@ -125,6 +140,7 @@ shape = SubResource("RectangleShape2D_omdxl")
 debug_color = Color(0.6958949, 0.28403082, 0.9971865, 0.41960785)
 
 [node name="Portal2" type="Area2D" parent="." unique_id=762822876 groups=["portal"]]
+visibility_layer = 4
 position = Vector2(-877, 0)
 scale = Vector2(2, 2)
 collision_layer = 8
@@ -135,6 +151,7 @@ shape = SubResource("RectangleShape2D_omdxl")
 debug_color = Color(0.6958949, 0.28403082, 0.9971865, 0.41960785)
 
 [node name="Portal3" type="Area2D" parent="." unique_id=1258026421 groups=["portal"]]
+visibility_layer = 4
 position = Vector2(0, -484.00003)
 rotation = 1.5707964
 scale = Vector2(2.0405984, -2.8899333)
@@ -146,6 +163,7 @@ shape = SubResource("RectangleShape2D_omdxl")
 debug_color = Color(0.6958949, 0.28403082, 0.9971865, 0.41960785)
 
 [node name="Portal4" type="Area2D" parent="." unique_id=1876486691 groups=["portal"]]
+visibility_layer = 4
 position = Vector2(0, 484)
 rotation = 1.5707964
 scale = Vector2(2.0405984, -2.8899333)
