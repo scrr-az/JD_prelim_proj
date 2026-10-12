@@ -1,16 +1,19 @@
 extends CharacterBody2D
 
 @export var max_speed = 400
-@export var accel = 1300
-@export var friction = 600
+@export var accel = 2000
+@export var friction = 700000
 var bullet_path = preload("res://bullet.tscn")
 
 var input = Vector2.ZERO
 
+var bullet_counter = 5
+
 @export var is_p1 = true
 
 func _physics_process(delta):
-	look_at(get_global_mouse_position())
+	$Hand.look_at(get_global_mouse_position())
+	#print(str(bullet_counter))
 	if Input.is_action_just_pressed("shoot"):
 		fire()
 	player_movement(delta)
@@ -37,13 +40,21 @@ func player_movement(delta):
 		velocity += (input * accel * delta)
 		velocity = velocity.limit_length(max_speed)
 		
+	if velocity.x >= 0:
+		$Sprite2D.flip_h = 0
+	else:
+		$Sprite2D.flip_h = 1
+	
 	move_and_slide()
 	
 func fire():
-	if is_p1:
-		var bullet = bullet_path.instantiate()
-		bullet.dir=rotation
-		bullet.pos=$BulletSpawn.global_position
-		bullet.rot=global_rotation
-		get_parent().add_child(bullet)
-		#print("R: " + str(bullet.rot) + " D: " + str(bullet.dir) + " S: " + str(bullet.speed))
+	if is_p1:													# debugging, will remove later
+		if bullet_counter > 0:
+			var bullet = bullet_path.instantiate()
+			bullet.dir=$Hand.rotation
+			bullet.pos=$Hand.global_position
+			bullet.rot=$Hand.rotation
+			get_parent().add_child(bullet)
+			bullet_counter = bullet_counter-1
+			#print("R: " + str(bullet.rot) + " D: " + str(bullet.dir) + " S: " + str(bullet.speed))
+			#print(str(bullet_counter))
