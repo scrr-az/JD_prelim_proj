@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dyv2gvwar1uih"]
 
-[ext_resource type="Script" uid="uid://bogggbx11wpl1" path="res://timer.gd" id="1_qdhxh"]
+[ext_resource type="Script" uid="uid://bogggbx11wpl1" path="res://scripts/timer.gd" id="1_srplv"]
 
 [node name="TimerNode" type="Node" unique_id=1286044585]
-script = ExtResource("1_qdhxh")
+script = ExtResource("1_srplv")
 
 [node name="Timer" type="Timer" parent="." unique_id=1774174230]
 wait_time = 120.0

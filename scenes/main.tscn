@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://das8u5hnia4py"]
 
-[ext_resource type="Script" uid="uid://bwy2qn52ohfjy" path="res://main.gd" id="1_7mycd"]
-[ext_resource type="Script" uid="uid://dqbjnr2mnhc8k" path="res://player.gd" id="2_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://dyv2gvwar1uih" path="res://timer.tscn" id="2_272bh"]
-[ext_resource type="Texture2D" uid="uid://p7dsp4eh2yuu" path="res://sprites/Screenshot_20261006_144109.png" id="3_1bvp3"]
-[ext_resource type="Texture2D" uid="uid://1e0hot3jcfxa" path="res://sprites/Oto.jpg" id="3_h2yge"]
-[ext_resource type="Texture2D" uid="uid://caiypxew6fpsg" path="res://sprites/a-hand-gripping-a-revolver-firmly-against-a-plain-transparent-background-emphasizing-gun-control-and-safety-awareness-hand-holding-revolver-on-transparent-background-free-png.png" id="3_lquwl"]
-[ext_resource type="Texture2D" uid="uid://bf87rr1fk1k5h" path="res://icon.svg" id="4_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://dqqr2y5m8ndbt" path="res://bullet.tscn" id="4_5vw27"]
+[ext_resource type="Script" uid="uid://bwy2qn52ohfjy" path="res://scripts/main.gd" id="1_tipki"]
+[ext_resource type="Texture2D" uid="uid://1e0hot3jcfxa" path="res://sprites/Oto.jpg" id="2_tefeu"]
+[ext_resource type="PackedScene" uid="uid://dyv2gvwar1uih" path="res://scenes/timer.tscn" id="2_tipki"]
+[ext_resource type="Script" uid="uid://dqbjnr2mnhc8k" path="res://scripts/player.gd" id="3_choun"]
+[ext_resource type="Texture2D" uid="uid://caiypxew6fpsg" path="res://sprites/a-hand-gripping-a-revolver-firmly-against-a-plain-transparent-background-emphasizing-gun-control-and-safety-awareness-hand-holding-revolver-on-transparent-background-free-png.png" id="3_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://p7dsp4eh2yuu" path="res://sprites/Screenshot_20261006_144109.png" id="4_tipki"]
+[ext_resource type="PackedScene" uid="uid://dqqr2y5m8ndbt" path="res://scenes/bullet.tscn" id="4_ya4ey"]
+[ext_resource type="Texture2D" uid="uid://bf87rr1fk1k5h" path="res://sprites/icon.svg" id="5_85g3d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_43ug5"]
 size = Vector2(132, 129)
@@ -16,12 +16,12 @@ size = Vector2(132, 129)
 size = Vector2(37, 711)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_cuehe"]
-diffuse_texture = ExtResource("4_1bvp3")
+diffuse_texture = ExtResource("5_85g3d")
 specular_color = Color(0.65497863, 0.50195163, 0.53615093, 1)
 
 [node name="Node2D" type="Node2D" unique_id=106943654]
-script = ExtResource("1_7mycd")
-timer_scene = ExtResource("2_272bh")
+script = ExtResource("1_tipki")
+timer_scene = ExtResource("2_tipki")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=429233672]
 
@@ -30,13 +30,13 @@ visibility_layer = 4
 position = Vector2(-485, -124)
 collision_layer = 2
 collision_mask = 5
-script = ExtResource("2_0xm2m")
-bullet_scene = ExtResource("4_5vw27")
+script = ExtResource("3_choun")
+bullet_scene = ExtResource("4_ya4ey")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player1" unique_id=1556005470]
 position = Vector2(-3.0517578e-05, -3.0517578e-05)
 scale = Vector2(0.3134328, 0.207483)
-texture = ExtResource("3_h2yge")
+texture = ExtResource("2_tefeu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player1" unique_id=1826040358]
 position = Vector2(0, -1)
@@ -48,7 +48,7 @@ position = Vector2(83, 0)
 [node name="Sprite2D" type="Sprite2D" parent="Player1/Hand" unique_id=1026619899]
 position = Vector2(-4, -1)
 scale = Vector2(0.07184675, 0.0884755)
-texture = ExtResource("3_lquwl")
+texture = ExtResource("3_o6xl0")
 flip_h = true
 
 [node name="Player2" type="CharacterBody2D" parent="." unique_id=2093198563]
@@ -56,14 +56,14 @@ visibility_layer = 4
 position = Vector2(324, -197)
 collision_layer = 2
 collision_mask = 5
-script = ExtResource("2_0xm2m")
-bullet_scene = ExtResource("4_5vw27")
+script = ExtResource("3_choun")
+bullet_scene = ExtResource("4_ya4ey")
 is_p1 = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Player2" unique_id=1539432071]
 position = Vector2(0.99993896, 0)
 scale = Vector2(1.2300887, 0.9852941)
-texture = ExtResource("3_1bvp3")
+texture = ExtResource("4_tipki")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player2" unique_id=288006264]
 position = Vector2(1, -1)
@@ -75,7 +75,7 @@ position = Vector2(83, 0)
 [node name="Sprite2D" type="Sprite2D" parent="Player2/Hand" unique_id=955384796]
 position = Vector2(-4, -1)
 scale = Vector2(0.07184675, 0.0884755)
-texture = ExtResource("3_lquwl")
+texture = ExtResource("3_o6xl0")
 flip_h = true
 
 [node name="Wall" type="StaticBody2D" parent="." unique_id=1015467905]

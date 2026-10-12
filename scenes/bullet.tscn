@@ -1,20 +1,20 @@
 [gd_scene format=3 uid="uid://dqqr2y5m8ndbt"]
 
-[ext_resource type="Script" uid="uid://b0prwt0rdt4yb" path="res://bullet.gd" id="1_v8qja"]
-[ext_resource type="Texture2D" uid="uid://hkl72bt3yk2k" path="res://sprites/bullet.jpg" id="2_t4vbm"]
+[ext_resource type="Script" uid="uid://b0prwt0rdt4yb" path="res://scripts/bullet.gd" id="1_y25gk"]
+[ext_resource type="Texture2D" uid="uid://hkl72bt3yk2k" path="res://sprites/bullet.jpg" id="2_l5glv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0sqsv"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1819656802]
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("1_v8qja")
+script = ExtResource("1_y25gk")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1941265060]
 visibility_layer = 4
 position = Vector2(0, -1)
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("2_t4vbm")
+texture = ExtResource("2_l5glv")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=100370255 groups=["bullet"]]
 visibility_layer = 4
