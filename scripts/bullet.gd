@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 750						# bullet speed
+var speed = 500						# bullet speed
 var pos:Vector2						# bullet position
 var rot:float						# bullet rotation (radians)
 var dir:float						# bullet direction (radians)
@@ -10,7 +10,7 @@ func _ready():
 	global_rotation=rot
 
 func _physics_process(delta):
-	velocity = Vector2(speed, 0).rotated(dir)
+	velocity = Vector2(Global.bullet_speed, 0).rotated(dir)
 	move_and_slide()							# bullet movement
 
 func _on_area_2d_area_entered(area: Area2D):

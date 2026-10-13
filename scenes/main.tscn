@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://das8u5hnia4py"]
 
-[ext_resource type="Script" uid="uid://bwy2qn52ohfjy" path="res://scripts/main.gd" id="1_tipki"]
 [ext_resource type="Texture2D" uid="uid://1e0hot3jcfxa" path="res://sprites/Oto.jpg" id="2_tefeu"]
-[ext_resource type="PackedScene" uid="uid://dyv2gvwar1uih" path="res://scenes/timer.tscn" id="2_tipki"]
 [ext_resource type="Script" uid="uid://dqbjnr2mnhc8k" path="res://scripts/player.gd" id="3_choun"]
 [ext_resource type="Texture2D" uid="uid://caiypxew6fpsg" path="res://sprites/a-hand-gripping-a-revolver-firmly-against-a-plain-transparent-background-emphasizing-gun-control-and-safety-awareness-hand-holding-revolver-on-transparent-background-free-png.png" id="3_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://p7dsp4eh2yuu" path="res://sprites/Screenshot_20261006_144109.png" id="4_tipki"]
@@ -20,8 +18,6 @@ diffuse_texture = ExtResource("5_85g3d")
 specular_color = Color(0.65497863, 0.50195163, 0.53615093, 1)
 
 [node name="Node2D" type="Node2D" unique_id=106943654]
-script = ExtResource("1_tipki")
-timer_scene = ExtResource("2_tipki")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=429233672]
 
