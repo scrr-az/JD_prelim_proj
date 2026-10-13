@@ -10,7 +10,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8hn45"]
 size = Vector2(125.5, 122)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vr6w2"]
+size = Vector2(125, 123)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ub6hr"]
+size = Vector2(139, 134)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13ojl"]
 size = Vector2(139, 134)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_omdxl"]
@@ -52,6 +58,10 @@ flip_h = true
 position = Vector2(0.25, 0)
 shape = SubResource("RectangleShape2D_8hn45")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player1" unique_id=60957869]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_vr6w2")
+
 [node name="Player2" type="CharacterBody2D" parent="." unique_id=2093198563]
 visibility_layer = 4
 position = Vector2(324, -197)
@@ -80,6 +90,10 @@ flip_h = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player2/Area2D" unique_id=49361056]
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_ub6hr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2" unique_id=1382064072]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_13ojl")
 
 [node name="Wall" type="StaticBody2D" parent="." unique_id=1015467905]
 visibility_layer = 4
