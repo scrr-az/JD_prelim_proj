@@ -66,3 +66,6 @@ func fire():											## creates bullet
 		bullet_counter = bullet_counter-1
 		#print("R: " + str(bullet.rot) + " D: " + str(bullet.dir) + " S: " + str(bullet.speed))
 		#print(str(bullet_counter))
+
+func _on_area_2d_area_entered(area: Area2D):
+	print ("hit")

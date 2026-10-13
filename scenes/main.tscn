@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://dqqr2y5m8ndbt" path="res://scenes/bullet.tscn" id="4_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://bf87rr1fk1k5h" path="res://sprites/icon.svg" id="5_85g3d"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8hn45"]
+size = Vector2(125.5, 122)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_43ug5"]
 size = Vector2(132, 129)
 
@@ -34,10 +37,6 @@ position = Vector2(-3.0517578e-05, -3.0517578e-05)
 scale = Vector2(0.3134328, 0.207483)
 texture = ExtResource("2_tefeu")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player1" unique_id=1826040358]
-position = Vector2(0, -1)
-shape = SubResource("RectangleShape2D_43ug5")
-
 [node name="Hand" type="Node2D" parent="Player1" unique_id=1358737202]
 position = Vector2(83, 0)
 
@@ -46,6 +45,12 @@ position = Vector2(-4, -1)
 scale = Vector2(0.07184675, 0.0884755)
 texture = ExtResource("3_o6xl0")
 flip_h = true
+
+[node name="Area2D" type="Area2D" parent="Player1" unique_id=1597104610]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player1/Area2D" unique_id=337526444]
+position = Vector2(0.25, 0)
+shape = SubResource("RectangleShape2D_8hn45")
 
 [node name="Player2" type="CharacterBody2D" parent="." unique_id=2093198563]
 visibility_layer = 4
@@ -169,3 +174,5 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal4" unique_id=279474847]
 shape = SubResource("RectangleShape2D_omdxl")
 debug_color = Color(0.6958949, 0.28403082, 0.9971865, 0.41960785)
+
+[connection signal="area_entered" from="Player1/Area2D" to="Player1" method="_on_area_2d_area_entered"]
