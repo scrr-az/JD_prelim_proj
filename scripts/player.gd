@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var accel = 200000
 @export var friction = 700000
 @export var bullet_scene : PackedScene
+@export var bullet_color : Color
 
 var input = Vector2.ZERO
 
@@ -15,7 +16,7 @@ func _physics_process(delta):
 	$Hand.look_at(get_global_mouse_position())
 	#print(str(bullet_counter))
 	if Input.is_action_just_pressed("shoot"):
-		fire()
+		change_bullet_color()
 	player_movement(delta)
 
 func get_input():
@@ -47,14 +48,21 @@ func player_movement(delta):
 	
 	move_and_slide()
 	
+func change_bullet_color():
+	if is_p1:
+		bullet_color = Color(0.1, 0.745, 1)
+	else:
+		bullet_color = Color(1, 0.2, 0)
+	fire()
+	
 func fire():
-	if is_p1:													# debugging, will remove later
-		if bullet_counter > 0:
-			var bullet = bullet_scene.instantiate()
-			bullet.dir=$Hand.rotation
-			bullet.pos=$Hand.global_position
-			bullet.rot=$Hand.rotation
-			get_parent().add_child(bullet)
-			bullet_counter = bullet_counter-1
-			#print("R: " + str(bullet.rot) + " D: " + str(bullet.dir) + " S: " + str(bullet.speed))
-			#print(str(bullet_counter))
+	if bullet_counter > 0:
+		var bullet = bullet_scene.instantiate()
+		bullet.get_node("BulletSprite").modulate = bullet_color
+		bullet.dir=$Hand.rotation
+		bullet.pos=$Hand.global_position
+		bullet.rot=$Hand.rotation
+		get_parent().add_child(bullet)
+		bullet_counter = bullet_counter-1
+		#print("R: " + str(bullet.rot) + " D: " + str(bullet.dir) + " S: " + str(bullet.speed))
+		#print(str(bullet_counter))
