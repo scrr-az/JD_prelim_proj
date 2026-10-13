@@ -1,33 +1,21 @@
 extends Node
 
-const BOOSTED_SPEED := 750
+const boosted_speed := 750													## speed after sudden death
 
 var bullet_speed := 500
 
-var speed_timer: Timer
+var sudden_death_timer: Timer												## timer for boosting bullet speed (to avoid draws)
 
 func _ready():
-	speed_timer = Timer.new()
-	speed_timer.one_shot = true
-	speed_timer.wait_time = 2.0
-	speed_timer.timeout.connect(_on_speed_timer_timeout)
-	add_child(speed_timer)
-	speed_timer.start()
+	setup_sudden_death_timer()
 
-func _on_speed_timer_timeout():
-	bullet_speed = BOOSTED_SPEED  # affects bullets created from now on
-	get_tree().set_group("bullets", "speed", BOOSTED_SPEED)
+func _on_sudden_death_timer_timeout():										## boost speed for both old and new bullets
+	bullet_speed = boosted_speed
 
-#extends Node2D
-#
-#@export var bullet_timer_scene: PackedScene
-#
-## Called when the node enters the scene tree for the first time.
-#func _ready():
-	##print("boasboas")
-	#var bullet_timer = bullet_timer_scene.instantiate()
-	#add_child(bullet_timer)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-	#pass
+func setup_sudden_death_timer():											## sets up timer
+	sudden_death_timer = Timer.new()
+	sudden_death_timer.one_shot = true
+	sudden_death_timer.wait_time = 5.0
+	sudden_death_timer.timeout.connect(_on_sudden_death_timer_timeout)
+	add_child(sudden_death_timer)
+	sudden_death_timer.start()

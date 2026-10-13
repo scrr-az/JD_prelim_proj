@@ -1,16 +1,16 @@
 extends CharacterBody2D
 
-@export var max_speed = 400
-@export var accel = 200000
-@export var friction = 700000
-@export var bullet_scene : PackedScene
-@export var bullet_color : Color
+@export var max_speed = 400												## maximum speed
+@export var accel = 200000												## acceleration
+@export var friction = 700000											## friction
+@export var bullet_scene : PackedScene									## bullet scene, gets instantiated
+@export var bullet_color : Color										## bullet color, depends on player
 
-var input = Vector2.ZERO
+var input = Vector2.ZERO												## determines player movement direction
 
-var bullet_counter = 5
+var bullet_counter = 5													## number of bullets per player
 
-@export var is_p1 = true
+@export var is_p1 = true												## boolean for player specific stuff
 
 func _physics_process(delta):
 	$Hand.look_at(get_global_mouse_position())
@@ -41,7 +41,7 @@ func player_movement(delta):
 		velocity += (input * accel * delta)
 		velocity = velocity.limit_length(max_speed)
 		
-	if velocity.x >= 0:
+	if velocity.x >= 0:											# flips player sprite depending on direction
 		$Sprite2D.flip_h = 0
 	else:
 		$Sprite2D.flip_h = 1
@@ -55,7 +55,7 @@ func change_bullet_color():
 		bullet_color = Color(1, 0.2, 0)
 	fire()
 	
-func fire():
+func fire():											## creates bullet
 	if bullet_counter > 0:
 		var bullet = bullet_scene.instantiate()
 		bullet.get_node("BulletSprite").modulate = bullet_color
