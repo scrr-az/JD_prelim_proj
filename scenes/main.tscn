@@ -10,8 +10,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8hn45"]
 size = Vector2(125.5, 122)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_43ug5"]
-size = Vector2(132, 129)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ub6hr"]
+size = Vector2(139, 134)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_omdxl"]
 size = Vector2(37, 711)
@@ -46,7 +46,7 @@ scale = Vector2(0.07184675, 0.0884755)
 texture = ExtResource("3_o6xl0")
 flip_h = true
 
-[node name="Area2D" type="Area2D" parent="Player1" unique_id=1597104610]
+[node name="Area2D" type="Area2D" parent="Player1" unique_id=1597104610 groups=["player"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player1/Area2D" unique_id=337526444]
 position = Vector2(0.25, 0)
@@ -66,10 +66,6 @@ position = Vector2(0.99993896, 0)
 scale = Vector2(1.2300887, 0.9852941)
 texture = ExtResource("4_tipki")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2" unique_id=288006264]
-position = Vector2(1, -1)
-shape = SubResource("RectangleShape2D_43ug5")
-
 [node name="Hand" type="Node2D" parent="Player2" unique_id=1142803336]
 position = Vector2(83, 0)
 
@@ -78,6 +74,12 @@ position = Vector2(-4, -1)
 scale = Vector2(0.07184675, 0.0884755)
 texture = ExtResource("3_o6xl0")
 flip_h = true
+
+[node name="Area2D" type="Area2D" parent="Player2" unique_id=244732788 groups=["player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2/Area2D" unique_id=49361056]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_ub6hr")
 
 [node name="Wall" type="StaticBody2D" parent="." unique_id=1015467905]
 visibility_layer = 4
@@ -176,3 +178,4 @@ shape = SubResource("RectangleShape2D_omdxl")
 debug_color = Color(0.6958949, 0.28403082, 0.9971865, 0.41960785)
 
 [connection signal="area_entered" from="Player1/Area2D" to="Player1" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Player2/Area2D" to="Player2" method="_on_area_2d_area_entered"]
