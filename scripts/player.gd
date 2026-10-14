@@ -59,13 +59,14 @@ func fire():											## creates bullet
 	if bullet_counter > 0:
 		var bullet = bullet_scene.instantiate()
 		bullet.get_node("BulletSprite").modulate = bullet_color
-		bullet.dir=$Hand.rotation
 		bullet.pos=$Hand.global_position
 		bullet.rot=$Hand.rotation
+		bullet.justShot=true
 		get_parent().add_child(bullet)
 		bullet_counter = bullet_counter-1
 		#print("R: " + str(bullet.rot) + " D: " + str(bullet.dir) + " S: " + str(bullet.speed))
 		#print(str(bullet_counter))
 
 func _on_area_2d_area_entered(area: Area2D):
-	print ("hit")
+	if area.is_in_group("bullet") && !area.get_parent().justShot:
+		print ("hit" + "1" if is_p1 else "2")
