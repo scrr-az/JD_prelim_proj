@@ -66,7 +66,15 @@ func fire():											## creates bullet
 		bullet_counter = bullet_counter-1
 		#print("R: " + str(bullet.rot) + " D: " + str(bullet.dir) + " S: " + str(bullet.speed))
 		#print(str(bullet_counter))
+		
+func death():
+	print("dead")
+	$Sprite2D.visible = false
+	$SpriteDead.visible = true
+	$SpriteDead.play()
+	await $SpriteDead.animation_finished
+	get_tree().change_scene_to_file("res://scenes/level2.tscn")
 
 func _on_area_2d_area_entered(area: Area2D):
 	if area.is_in_group("bullet") && !area.get_parent().justShot:
-		print ("hit" + "1" if is_p1 else "2")
+		death()

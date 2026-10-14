@@ -1,0 +1,223 @@
+[gd_scene format=3 uid="uid://cdt1eapjso08w"]
+
+[ext_resource type="Script" uid="uid://dqbjnr2mnhc8k" path="res://scripts/player.gd" id="1_yqkch"]
+[ext_resource type="PackedScene" uid="uid://dqqr2y5m8ndbt" path="res://scenes/bullet.tscn" id="2_6ep0u"]
+[ext_resource type="Texture2D" uid="uid://1e0hot3jcfxa" path="res://sprites/Oto.jpg" id="3_hrcei"]
+[ext_resource type="Texture2D" uid="uid://caiypxew6fpsg" path="res://sprites/a-hand-gripping-a-revolver-firmly-against-a-plain-transparent-background-emphasizing-gun-control-and-safety-awareness-hand-holding-revolver-on-transparent-background-free-png.png" id="4_xa7n4"]
+[ext_resource type="Texture2D" path="res://sprites/Oto morto 1.jpg" id="5_6ep0u"]
+[ext_resource type="Texture2D" uid="uid://p7dsp4eh2yuu" path="res://sprites/Screenshot_20261006_144109.png" id="5_bo4dx"]
+[ext_resource type="Texture2D" uid="uid://bf87rr1fk1k5h" path="res://sprites/icon.svg" id="6_76toy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8hn45"]
+size = Vector2(125.5, 122)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vr6w2"]
+size = Vector2(125, 123)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hrcei"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6ep0u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bo4dx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_76toy")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ub6hr"]
+size = Vector2(139, 134)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13ojl"]
+size = Vector2(139, 134)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_omdxl"]
+size = Vector2(37, 711)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_cuehe"]
+diffuse_texture = ExtResource("6_76toy")
+specular_color = Color(0.65497863, 0.50195163, 0.53615093, 1)
+
+[node name="Node2D" type="Node2D" unique_id=106943654]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=429233672]
+
+[node name="Player1" type="CharacterBody2D" parent="." unique_id=941688024]
+visibility_layer = 4
+position = Vector2(-485, -124)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_yqkch")
+bullet_scene = ExtResource("2_6ep0u")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player1" unique_id=1556005470]
+position = Vector2(-3.0517578e-05, -3.0517578e-05)
+scale = Vector2(0.3134328, 0.207483)
+texture = ExtResource("3_hrcei")
+
+[node name="Hand" type="Node2D" parent="Player1" unique_id=1358737202]
+position = Vector2(83, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player1/Hand" unique_id=1026619899]
+position = Vector2(-4, -1)
+scale = Vector2(0.07184675, 0.0884755)
+texture = ExtResource("4_xa7n4")
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="Player1" unique_id=1597104610 groups=["player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player1/Area2D" unique_id=337526444]
+position = Vector2(0.25, 0)
+shape = SubResource("RectangleShape2D_8hn45")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player1" unique_id=60957869]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_vr6w2")
+
+[node name="SpriteDead" type="AnimatedSprite2D" parent="Player1" unique_id=1869345996]
+position = Vector2(6.0000057, -0.9999981)
+scale = Vector2(0.3059702, 0.24659865)
+sprite_frames = SubResource("SpriteFrames_hrcei")
+
+[node name="Player2" type="CharacterBody2D" parent="." unique_id=2093198563]
+visibility_layer = 4
+position = Vector2(324, -197)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_yqkch")
+bullet_scene = ExtResource("2_6ep0u")
+is_p1 = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Player2" unique_id=1539432071]
+position = Vector2(0.99993896, 0)
+scale = Vector2(1.2300887, 0.9852941)
+texture = ExtResource("5_bo4dx")
+
+[node name="Hand" type="Node2D" parent="Player2" unique_id=1142803336]
+position = Vector2(83, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player2/Hand" unique_id=955384796]
+position = Vector2(4.7009106, 5.6687803)
+scale = Vector2(0.20779848, 0.19267519)
+texture = ExtResource("6_76toy")
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="Player2" unique_id=244732788 groups=["player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2/Area2D" unique_id=49361056]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_ub6hr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2" unique_id=1382064072]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_13ojl")
+
+[node name="SpriteDead" type="AnimatedSprite2D" parent="Player2" unique_id=629718711]
+position = Vector2(6.0000057, -0.9999981)
+scale = Vector2(0.3059702, 0.24659865)
+sprite_frames = SubResource("SpriteFrames_hrcei")
+
+[node name="Wall" type="StaticBody2D" parent="." unique_id=1015467905]
+visibility_layer = 4
+scale = Vector2(1, 1.1599998)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" unique_id=157915284]
+shape = SubResource("RectangleShape2D_omdxl")
+
+[node name="Sprite2D" type="Sprite2D" parent="Wall" unique_id=1296338062]
+scale = Vector2(0.31249988, 5.734375)
+texture = SubResource("CanvasTexture_cuehe")
+
+[node name="Wall2" type="StaticBody2D" parent="." unique_id=608692556]
+visibility_layer = 4
+position = Vector2(0, 420)
+rotation = 1.5707964
+scale = Vector2(1, 2.28)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2" unique_id=692004069]
+shape = SubResource("RectangleShape2D_omdxl")
+
+[node name="Wall3" type="StaticBody2D" parent="." unique_id=1621179912]
+visibility_layer = 4
+position = Vector2(-816, 0)
+scale = Vector2(1, 1.2400007)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3" unique_id=285153799]
+shape = SubResource("RectangleShape2D_omdxl")
+
+[node name="Wall4" type="StaticBody2D" parent="." unique_id=517701200]
+visibility_layer = 4
+position = Vector2(816, 0)
+scale = Vector2(1, 1.2400007)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall4" unique_id=856886783]
+shape = SubResource("RectangleShape2D_omdxl")
+
+[node name="Wall5" type="StaticBody2D" parent="." unique_id=895096646]
+visibility_layer = 4
+position = Vector2(0, -420)
+rotation = 1.5707964
+scale = Vector2(1, 2.2800012)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall5" unique_id=1803011779]
+shape = SubResource("RectangleShape2D_omdxl")
+
+[node name="Portal" type="Area2D" parent="." unique_id=1888077765 groups=["portal"]]
+visibility_layer = 4
+position = Vector2(877, 0)
+scale = Vector2(2, 2)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal" unique_id=589142346]
+shape = SubResource("RectangleShape2D_omdxl")
+debug_color = Color(0.6958949, 0.28403082, 0.9971865, 0.41960785)
+
+[node name="Portal2" type="Area2D" parent="." unique_id=762822876 groups=["portal"]]
+visibility_layer = 4
+position = Vector2(-877, 0)
+scale = Vector2(2, 2)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal2" unique_id=1673377334]
+shape = SubResource("RectangleShape2D_omdxl")
+debug_color = Color(0.6958949, 0.28403082, 0.9971865, 0.41960785)
+
+[node name="Portal3" type="Area2D" parent="." unique_id=1258026421 groups=["portal"]]
+visibility_layer = 4
+position = Vector2(0, -484.00003)
+rotation = 1.5707964
+scale = Vector2(2.0405984, -2.8899333)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal3" unique_id=585584242]
+shape = SubResource("RectangleShape2D_omdxl")
+debug_color = Color(0.6958949, 0.28403082, 0.9971865, 0.41960785)
+
+[node name="Portal4" type="Area2D" parent="." unique_id=1876486691 groups=["portal"]]
+visibility_layer = 4
+position = Vector2(0, 484)
+rotation = 1.5707964
+scale = Vector2(2.0405984, -2.8899333)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal4" unique_id=279474847]
+shape = SubResource("RectangleShape2D_omdxl")
+debug_color = Color(0.6958949, 0.28403082, 0.9971865, 0.41960785)
+
+[connection signal="area_entered" from="Player1/Area2D" to="Player1" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Player2/Area2D" to="Player2" method="_on_area_2d_area_entered"]
