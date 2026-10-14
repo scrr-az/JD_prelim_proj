@@ -58,7 +58,7 @@ func change_bullet_color():
 func fire():											## creates bullet
 	if bullet_counter > 0:
 		var bullet = bullet_scene.instantiate()
-		bullet.get_node("BulletSprite").modulate = bullet_color
+		bullet.get_node("BulletSprite").modulate = bullet_color	
 		bullet.pos=$Hand.global_position
 		bullet.rot=$Hand.rotation
 		bullet.justShot=true
@@ -73,7 +73,7 @@ func death():
 	$SpriteDead.visible = true
 	$SpriteDead.play()
 	await $SpriteDead.animation_finished
-	get_tree().change_scene_to_file("res://scenes/level2.tscn")
+	get_tree().change_scene_to_file("res://scenes/level" + ".tscn")
 
 func _on_area_2d_area_entered(area: Area2D):
 	if area.is_in_group("bullet") && !area.get_parent().justShot:

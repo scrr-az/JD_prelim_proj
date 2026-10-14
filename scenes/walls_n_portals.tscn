@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://cldokl1heqw8i"]
+
+[ext_resource type="Texture2D" uid="uid://bf87rr1fk1k5h" path="res://sprites/icon.svg" id="1_kb2mg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5d2il"]
+size = Vector2(37, 711)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_27fae"]
+diffuse_texture = ExtResource("1_kb2mg")
+specular_color = Color(0.65497863, 0.50195163, 0.53615093, 1)
+
+[node name="Node2D" type="Node2D" unique_id=697854629]
+
+[node name="Wall" type="StaticBody2D" parent="." unique_id=885405762]
+visibility_layer = 4
+scale = Vector2(1, 1.1599998)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" unique_id=1430696993]
+shape = SubResource("RectangleShape2D_5d2il")
+
+[node name="Sprite2D" type="Sprite2D" parent="Wall" unique_id=245595844]
+scale = Vector2(0.31249988, 5.734375)
+texture = SubResource("CanvasTexture_27fae")
+
+[node name="Wall2" type="StaticBody2D" parent="." unique_id=540535886]
+visibility_layer = 4
+position = Vector2(0, 420)
+rotation = 1.5707964
+scale = Vector2(1, 2.28)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2" unique_id=911466459]
+shape = SubResource("RectangleShape2D_5d2il")
+
+[node name="Wall3" type="StaticBody2D" parent="." unique_id=225121254]
+visibility_layer = 4
+position = Vector2(-816, 0)
+scale = Vector2(1, 1.2400007)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3" unique_id=1218007073]
+shape = SubResource("RectangleShape2D_5d2il")
+
+[node name="Wall4" type="StaticBody2D" parent="." unique_id=393130842]
+visibility_layer = 4
+position = Vector2(816, 0)
+scale = Vector2(1, 1.2400007)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall4" unique_id=71487401]
+shape = SubResource("RectangleShape2D_5d2il")
+
+[node name="Wall5" type="StaticBody2D" parent="." unique_id=1362225644]
+visibility_layer = 4
+position = Vector2(0, -420)
+rotation = 1.5707964
+scale = Vector2(1, 2.2800012)
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall5" unique_id=1986437777]
+shape = SubResource("RectangleShape2D_5d2il")
+
+[node name="Portal" type="Area2D" parent="." unique_id=309693980 groups=["portal"]]
+visibility_layer = 4
+position = Vector2(877, 0)
+scale = Vector2(2, 2)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal" unique_id=377448213]
+shape = SubResource("RectangleShape2D_5d2il")
+debug_color = Color(0.6958949, 0.28403082, 0.9971865, 0.41960785)
+
+[node name="Portal2" type="Area2D" parent="." unique_id=257837471 groups=["portal"]]
+visibility_layer = 4
+position = Vector2(-877, 0)
+scale = Vector2(2, 2)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal2" unique_id=1959033194]
+shape = SubResource("RectangleShape2D_5d2il")
+debug_color = Color(0.6958949, 0.28403082, 0.9971865, 0.41960785)
+
+[node name="Portal3" type="Area2D" parent="." unique_id=1799114976 groups=["portal"]]
+visibility_layer = 4
+position = Vector2(0, -484.00003)
+rotation = 1.5707964
+scale = Vector2(2.0405984, -2.8899333)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal3" unique_id=565490673]
+shape = SubResource("RectangleShape2D_5d2il")
+debug_color = Color(0.6958949, 0.28403082, 0.9971865, 0.41960785)
+
+[node name="Portal4" type="Area2D" parent="." unique_id=1263478190 groups=["portal"]]
+visibility_layer = 4
+position = Vector2(0, 484)
+rotation = 1.5707964
+scale = Vector2(2.0405984, -2.8899333)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal4" unique_id=1436428574]
+shape = SubResource("RectangleShape2D_5d2il")
+debug_color = Color(0.6958949, 0.28403082, 0.9971865, 0.41960785)
