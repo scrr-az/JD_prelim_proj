@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://dqqr2y5m8ndbt" path="res://scenes/bullet.tscn" id="2_qgfdq"]
 [ext_resource type="Texture2D" uid="uid://1e0hot3jcfxa" path="res://sprites/Oto.jpg" id="3_cyakk"]
 [ext_resource type="Texture2D" uid="uid://caiypxew6fpsg" path="res://sprites/a-hand-gripping-a-revolver-firmly-against-a-plain-transparent-background-emphasizing-gun-control-and-safety-awareness-hand-holding-revolver-on-transparent-background-free-png.png" id="4_7m5b5"]
-[ext_resource type="Texture2D" path="res://sprites/Oto morto 1.jpg" id="5_xfu11"]
 [ext_resource type="Texture2D" uid="uid://p7dsp4eh2yuu" path="res://sprites/Screenshot_20261006_144109.png" id="6_ngimn"]
 [ext_resource type="Texture2D" uid="uid://bf87rr1fk1k5h" path="res://sprites/icon.svg" id="7_3wjnj"]
 
@@ -18,7 +17,7 @@ size = Vector2(125, 123)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_xfu11")
+"texture": ExtResource("3_cyakk")
 }, {
 "duration": 1.0,
 "texture": ExtResource("6_ngimn")
@@ -64,6 +63,7 @@ position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_vr6w2")
 
 [node name="SpriteDead" type="AnimatedSprite2D" parent="." unique_id=541512702]
+visible = false
 position = Vector2(6.0000057, -0.9999981)
 scale = Vector2(0.3059702, 0.24659865)
 sprite_frames = SubResource("SpriteFrames_vr6w2")

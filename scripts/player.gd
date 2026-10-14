@@ -79,7 +79,11 @@ func death():
 	var scene_number = int(current_scene.get_file().trim_prefix("level").trim_suffix(".tscn"))
 	var next_scene = "res://scenes/level" + str(scene_number + 1) + ".tscn"
 
+	if !ResourceLoader.exists(next_scene):
+		next_scene = "res://scenes/level1.tscn"
+	
 	get_tree().change_scene_to_file(next_scene)
+		
 
 func _on_area_2d_area_entered(area: Area2D):
 	if area.is_in_group("bullet") && !area.get_parent().justShot:

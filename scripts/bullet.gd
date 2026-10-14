@@ -23,5 +23,3 @@ func _on_area_2d_area_entered(area: Area2D):						## checks collisions
 	if area.is_in_group("player"):
 		if justShot:
 			justShot = false
-		else:
-			print("hit")
