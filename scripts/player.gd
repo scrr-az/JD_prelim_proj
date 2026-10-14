@@ -68,12 +68,18 @@ func fire():											## creates bullet
 		#print(str(bullet_counter))
 		
 func death():
-	print("dead")
+	# play the death animation
 	$Sprite2D.visible = false
 	$SpriteDead.visible = true
 	$SpriteDead.play()
 	await $SpriteDead.animation_finished
-	get_tree().change_scene_to_file("res://scenes/level" + "2" + ".tscn")
+	
+	# get the number of the current scene from the file name and change scene to the next one
+	var current_scene = get_tree().current_scene.scene_file_path
+	var scene_number = int(current_scene.get_file().trim_prefix("level").trim_suffix(".tscn"))
+	var next_scene = "res://scenes/level" + str(scene_number + 1) + ".tscn"
+
+	get_tree().change_scene_to_file(next_scene)
 
 func _on_area_2d_area_entered(area: Area2D):
 	if area.is_in_group("bullet") && !area.get_parent().justShot:
