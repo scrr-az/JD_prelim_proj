@@ -12,4 +12,4 @@
 
 [node name="Player2" parent="." unique_id=1990114457 instance=ExtResource("2_dwgg1")]
 
-[node name="Node2D" parent="." unique_id=697854629 instance=ExtResource("3_ru4tf")]
+[node name="WallsNPortals" parent="." unique_id=697854629 instance=ExtResource("3_ru4tf")]
