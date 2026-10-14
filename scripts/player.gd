@@ -58,16 +58,22 @@ func change_bullet_color():
 func fire():											## creates bullet
 	if bullet_counter > 0:
 		var bullet = bullet_scene.instantiate()
+		
 		bullet.get_node("BulletSprite").modulate = bullet_color	
 		bullet.pos=$Hand.global_position
 		bullet.rot=$Hand.rotation
-		bullet.justShot=true
+		
 		get_parent().add_child(bullet)
+		
 		bullet_counter = bullet_counter-1
 		#print("R: " + str(bullet.rot) + " D: " + str(bullet.dir) + " S: " + str(bullet.speed))
 		#print(str(bullet_counter))
 		
 func death():
+	# make all bullets stop moving and deactivate their collision so there are no more collisions
+	for bullet in get_tree().get_nodes_in_group("whole_bullet"):
+		bullet.stop_bullet()
+		
 	# play the death animation
 	$Sprite2D.visible = false
 	$SpriteDead.visible = true
