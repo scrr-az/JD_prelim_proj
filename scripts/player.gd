@@ -14,6 +14,7 @@ var bullet_counter = 5													## number of bullets per player
 
 func _physics_process(delta):
 	$Hand.look_at(get_global_mouse_position())
+	
 	#print(str(bullet_counter))
 	if Input.is_action_just_pressed("shoot"):
 		change_bullet_color()
