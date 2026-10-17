@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bledd41ugl8i3"]
+
+[ext_resource type="Texture2D" uid="uid://beclhkcc51j1r" path="res://sprites/wagon-back-end-Ccr5XOsy.jpg" id="1_18cu4"]
+[ext_resource type="Script" uid="uid://d1mtgpq7ohcgx" path="res://scenes/moving_obstacle.gd" id="1_lj30i"]
+
+[sub_resource type="Curve2D" id="Curve2D_ru4tf"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1, 428, 0, 0, 0, 0, -1, -275, 0, 0, 0, 0, -1, 428)
+}
+point_count = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8hn45"]
+size = Vector2(97, 99.999985)
+
+[node name="MovingObstacle" type="Path2D" unique_id=83186563]
+curve = SubResource("Curve2D_ru4tf")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=824608594]
+position = Vector2(-1, 428)
+rotation = -1.5707964
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PathFollow2D" unique_id=59788971]
+script = ExtResource("1_lj30i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/StaticBody2D" unique_id=1258057919]
+position = Vector2(0.5, 1.9073486e-06)
+shape = SubResource("RectangleShape2D_8hn45")
+
+[node name="Sprite2D" type="Sprite2D" parent="PathFollow2D/StaticBody2D" unique_id=13272899]
+position = Vector2(3.0517578e-05, -3.0517578e-05)
+rotation = 1.5707964
+scale = Vector2(0.12565713, 0.08778742)
+texture = ExtResource("1_18cu4")

@@ -9,7 +9,7 @@ func _ready():
 	global_position = pos
 	global_rotation = rot
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if stopped:
 		return
 		

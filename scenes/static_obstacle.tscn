@@ -5,13 +5,16 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8hn45"]
 size = Vector2(60, 114)
 
-[node name="Obstacle" type="StaticBody2D" unique_id=374884349]
+[node name="StaticObstacle" type="StaticBody2D" unique_id=374884349]
+collision_layer = 8
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=371626785]
 position = Vector2(-0.375, 0.25)
 shape = SubResource("RectangleShape2D_8hn45")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=334914167]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=334914167 groups=["obstacle"]]
+light_mask = 8
 position = Vector2(-0.37500763, 0.24998474)
 scale = Vector2(0.046436682, 0.07694892)
 texture = ExtResource("1_7ukg5")
