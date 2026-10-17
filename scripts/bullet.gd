@@ -10,7 +10,6 @@ func _ready():
 	global_rotation = rot
 
 func _physics_process(delta):
-	print(stopped)
 	if stopped:
 		return
 		
