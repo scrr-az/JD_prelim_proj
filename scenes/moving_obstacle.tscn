@@ -19,7 +19,8 @@ curve = SubResource("Curve2D_ru4tf")
 position = Vector2(-1, 428)
 rotation = -1.5707964
 
-[node name="StaticBody2D" type="StaticBody2D" parent="PathFollow2D" unique_id=59788971]
+[node name="StaticBody2D" type="StaticBody2D" parent="PathFollow2D" unique_id=59788971 groups=["obstacle"]]
+collision_layer = 8
 script = ExtResource("1_lj30i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/StaticBody2D" unique_id=1258057919]
