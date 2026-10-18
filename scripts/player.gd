@@ -93,16 +93,15 @@ func fire():											## creates bullet
 		
 func death():
 	# make all bullets stop moving and deactivate their collision so there are no more collisions
-	round_over = true
-	
-	for bullet in get_tree().get_nodes_in_group("whole_bullet"):
-		bullet.stop_bullet()
+	get_tree().paused = true
 		
 	# play the death animation
 	$Sprite2D.visible = false
 	$SpriteDead.visible = true
 	$SpriteDead.play()
 	await $SpriteDead.animation_finished
+	
+	get_tree().paused = false
 	
 	# get the number of the current scene from the file name and change scene to the next one
 	var current_scene = get_tree().current_scene.scene_file_path

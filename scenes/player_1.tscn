@@ -61,6 +61,7 @@ shape = SubResource("RectangleShape2D_8hn45")
 shape = SubResource("RectangleShape2D_vr6w2")
 
 [node name="SpriteDead" type="AnimatedSprite2D" parent="." unique_id=541512702]
+process_mode = 2
 visible = false
 position = Vector2(6.0000057, -0.9999981)
 scale = Vector2(0.3059702, 0.24659865)
