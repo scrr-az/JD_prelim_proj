@@ -8,7 +8,7 @@ size = Vector2(53, 16)
 
 [node name="Bullet" type="CharacterBody2D" unique_id=1819656802 groups=["whole_bullet"]]
 collision_layer = 4
-collision_mask = 2
+collision_mask = 8
 script = ExtResource("1_y25gk")
 
 [node name="BulletSprite" type="Sprite2D" parent="." unique_id=1941265060]
@@ -19,9 +19,13 @@ texture = ExtResource("2_y25gk")
 
 [node name="BulletArea2D" type="Area2D" parent="." unique_id=100370255 groups=["bullet"]]
 visibility_layer = 4
-collision_mask = 11
+collision_mask = 10
 
 [node name="BulletCollisionShape2D" type="CollisionShape2D" parent="BulletArea2D" unique_id=1006762218]
+visibility_layer = 4
+shape = SubResource("RectangleShape2D_0sqsv")
+
+[node name="BulletCollisionShape2D" type="CollisionShape2D" parent="." unique_id=1922946898]
 visibility_layer = 4
 shape = SubResource("RectangleShape2D_0sqsv")
 

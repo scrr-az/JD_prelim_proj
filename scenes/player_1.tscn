@@ -8,10 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://bf87rr1fk1k5h" path="res://sprites/icon.svg" id="7_3wjnj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8hn45"]
-size = Vector2(125.5, 122)
+size = Vector2(126, 122)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vr6w2"]
-size = Vector2(125, 123)
+size = Vector2(126, 122)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vr6w2"]
 animations = [{
@@ -32,9 +32,8 @@ animations = [{
 
 [node name="Player1" type="CharacterBody2D" unique_id=658639154]
 visibility_layer = 4
-position = Vector2(-485, -124)
+position = Vector2(-485, 0)
 collision_layer = 2
-collision_mask = 5
 script = ExtResource("1_jkihx")
 bullet_scene = ExtResource("2_qgfdq")
 
@@ -45,20 +44,20 @@ texture = ExtResource("3_cyakk")
 
 [node name="Hand" type="Node2D" parent="." unique_id=934984051]
 
-[node name="Sprite2D" type="Sprite2D" parent="Hand" unique_id=1947566416]
+[node name="HandSprite" type="Sprite2D" parent="Hand" unique_id=1947566416]
 position = Vector2(82, -7)
 scale = Vector2(0.07184675, 0.0884755)
 texture = ExtResource("4_7m5b5")
 flip_h = true
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1916507428 groups=["player"]]
+collision_layer = 2
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1725035769]
-position = Vector2(0.25, 0)
 shape = SubResource("RectangleShape2D_8hn45")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=631884777]
-position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_vr6w2")
 
 [node name="SpriteDead" type="AnimatedSprite2D" parent="." unique_id=541512702]

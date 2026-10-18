@@ -32,9 +32,8 @@ animations = [{
 
 [node name="Player2" type="CharacterBody2D" unique_id=1990114457]
 visibility_layer = 4
-position = Vector2(324, -197)
+position = Vector2(324, -1)
 collision_layer = 2
-collision_mask = 5
 script = ExtResource("1_v7tvf")
 bullet_scene = ExtResource("2_povjg")
 is_p1 = false
@@ -47,13 +46,14 @@ texture = ExtResource("3_hkoe6")
 [node name="Hand" type="Node2D" parent="." unique_id=364160589]
 position = Vector2(1, -1)
 
-[node name="Sprite2D" type="Sprite2D" parent="Hand" unique_id=1405062685]
+[node name="HandSprite" type="Sprite2D" parent="Hand" unique_id=1405062685]
 position = Vector2(90, -6)
 scale = Vector2(0.07184675, 0.0884755)
 texture = ExtResource("4_ne6jw")
 flip_h = true
 
 [node name="Area2D" type="Area2D" parent="." unique_id=3262312 groups=["player"]]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1258051321]
 position = Vector2(0.5, 0)

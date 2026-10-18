@@ -10,12 +10,19 @@ func _ready():
 	global_rotation = rot
 
 func _physics_process(delta):
-	print(stopped)
 	if stopped:
 		return
-		
-	velocity = Vector2(Global.bullet_speed, 0).rotated(rot)			# checks bullet speed via global script
-	move_and_slide()												# bullet movement
+	
+	velocity = Vector2(Global.bullet_speed, 0).rotated(rot)
+	#move_and_slide()
+	# bullet movement (returns a KinematicCollision2D body if it collides with something)
+	var collisionInfo = move_and_collide(delta * velocity)
+	
+	if collisionInfo:
+		#print(collisionInfo.get_collider().is_in_group("obstacle"))
+		var newVel = velocity.bounce(collisionInfo.get_normal())
+		global_rotation = atan2(newVel.y, newVel.x)
+		rot = atan2(newVel.y, newVel.x)
 	
 func stop_bullet():
 	stopped = true
