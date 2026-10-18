@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bledd41ugl8i3"]
 
 [ext_resource type="Texture2D" uid="uid://beclhkcc51j1r" path="res://sprites/wagon-back-end-Ccr5XOsy.jpg" id="1_18cu4"]
-[ext_resource type="Script" uid="uid://d1mtgpq7ohcgx" path="res://scenes/moving_obstacle.gd" id="1_lj30i"]
+[ext_resource type="Script" uid="uid://d1mtgpq7ohcgx" path="res://scripts/moving_obstacle.gd" id="1_lj30i"]
 
 [sub_resource type="Curve2D" id="Curve2D_ru4tf"]
 _data = {
