@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dpeon8okpvtiv"]
+
+[ext_resource type="PackedScene" uid="uid://5gsctkcopwe" path="res://scenes/player_2.tscn" id="1_qkggj"]
+[ext_resource type="PackedScene" uid="uid://dnf42cckajsdu" path="res://scenes/player_1.tscn" id="2_utlmm"]
+[ext_resource type="PackedScene" uid="uid://cldokl1heqw8i" path="res://scenes/walls_n_portals.tscn" id="3_jaibq"]
+[ext_resource type="PackedScene" uid="uid://cqhgdepuddsbs" path="res://scenes/static_obstacle.tscn" id="4_3qbet"]
+[ext_resource type="PackedScene" uid="uid://bledd41ugl8i3" path="res://scenes/moving_obstacle.tscn" id="5_6p2dx"]
+
+[node name="Node2D" type="Node2D" unique_id=106943654]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=429233672]
+
+[node name="Player2" parent="." unique_id=1990114457 instance=ExtResource("1_qkggj")]
+
+[node name="Player1" parent="." unique_id=658639154 instance=ExtResource("2_utlmm")]
+
+[node name="WallsNPortals" parent="." unique_id=697854629 instance=ExtResource("3_jaibq")]
+
+[node name="Obstacle" parent="." unique_id=374884349 instance=ExtResource("4_3qbet")]
+position = Vector2(-106, -20)
+
+[node name="Obstacle2" parent="." unique_id=287423638 instance=ExtResource("4_3qbet")]
+position = Vector2(95, -259)
+
+[node name="Obstacle3" parent="." unique_id=676564054 instance=ExtResource("4_3qbet")]
+position = Vector2(-85, 287)
+
+[node name="Obstacle4" parent="." unique_id=1751651958 instance=ExtResource("4_3qbet")]
+position = Vector2(114, 231)
+
+[node name="MovingObstacle" parent="." unique_id=83186563 instance=ExtResource("5_6p2dx")]
