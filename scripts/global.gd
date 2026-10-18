@@ -1,6 +1,6 @@
 extends Node
 
-const boosted_speed := 750													## speed after sudden death
+const boosted_speed := 1000													## speed after sudden death
 
 var bullet_speed := 500
 

@@ -8,16 +8,33 @@ extends CharacterBody2D
 
 var input = Vector2.ZERO												## determines player movement direction
 
+var deadzone : float = 0.2												## joystick deadzone
+var target_angle : float												## angle to move controller players hand
+
 var bullet_counter = 5													## number of bullets per player
 
 @export var is_p1 = true												## boolean for player specific stuff
 
 func _physics_process(delta):
-	$Hand.look_at(get_global_mouse_position())
-	
-	#print(str(bullet_counter))
-	if Input.is_action_just_pressed("shoot"):
+	if is_p1:
+		$Hand.look_at(get_global_mouse_position())						# moves hand to mouse
+	else:
+		var input_vec : Vector2 = Vector2(								# gets joystick input
+			Input.get_axis("p2_lookleft", "p2_lookright"),
+			Input.get_axis("p2_lookup", "p2_lookdown")
+		)
+		
+		if input_vec.length() >= deadzone:								# gets hand angle
+			target_angle = input_vec.angle() 
+			
+		if rotation != target_angle:									# points hand to angle
+			$Hand.rotation = target_angle
+			
+	if Input.is_action_just_pressed("p1_shoot") and is_p1:				# p1 shoots
 		change_bullet_color()
+	if Input.is_action_just_pressed("p2_shoot") and not is_p1:			# p2 shoots
+		change_bullet_color()
+		
 	player_movement(delta)
 
 func get_input():
