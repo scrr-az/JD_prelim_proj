@@ -2,12 +2,15 @@ extends CharacterBody2D
 
 var pos : Vector2													## bullet position
 var rot : float														## bullet rotation (in radians)
-var justShot : bool = true
+var justShot : bool = false
 var stopped: bool = false
+
+#var afterimage_timer : Timer
 
 func _ready():
 	global_position = pos
 	global_rotation = rot
+	#setup_afterimage_timer()
 
 func _physics_process(delta):
 	if stopped:
@@ -23,6 +26,7 @@ func _physics_process(delta):
 		var newVel = velocity.bounce(collisionInfo.get_normal())
 		global_rotation = atan2(newVel.y, newVel.x)
 		rot = atan2(newVel.y, newVel.x)
+		
 	
 func stop_bullet():
 	stopped = true
@@ -36,6 +40,16 @@ func _on_area_2d_area_entered(area: Area2D):						## checks collisions
 		else:														# side portals
 			position.x *= -1
 			
-	if area.is_in_group("player"):
-		if justShot:
-			justShot = false
+	#if area.is_in_group("player"):
+		#if justShot:
+			#justShot = false
+			#
+#func setup_afterimage_timer():
+	#afterimage_timer = Timer.new()
+	#afterimage_timer.wait_time = 0.3
+	#afterimage_timer.timeout.connect(_on_afterimage_timer_timeout)
+	#add_child(afterimage_timer)
+	#afterimage_timer.start()
+	#
+#func _on_afterimage_timer_timeout():
+	#bullet_speed = boosted_speed

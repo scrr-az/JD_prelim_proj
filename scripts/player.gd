@@ -82,8 +82,9 @@ func fire():											## creates bullet
 		var bullet = bullet_scene.instantiate()
 		
 		bullet.get_node("BulletSprite").modulate = bullet_color	
-		bullet.pos=$Hand/HandSprite.global_position
 		bullet.rot=$Hand.rotation
+		bullet.pos=$Hand/HandSprite.global_position
+		bullet.pos += Vector2(50, 0).rotated(bullet.rot)
 		
 		get_parent().add_child(bullet)
 		
