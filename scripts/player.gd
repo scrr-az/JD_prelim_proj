@@ -125,7 +125,7 @@ func death():
 	var next_scene = "res://scenes/level" + str(scene_number + 1) + ".tscn"
 
 	if !ResourceLoader.exists(next_scene):
-		next_scene = "res://scenes/level1.tscn"
+		next_scene = "res://scenes/main.tscn"
 	
 	get_tree().change_scene_to_file(next_scene)
 		

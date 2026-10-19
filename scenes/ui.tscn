@@ -25,6 +25,7 @@ offset_top = 40.0
 offset_right = 653.0
 offset_bottom = 95.0
 offset_transform_position = Vector2(-2.185, 0)
+theme_override_colors/font_color = Color(0.3882353, 0.2509804, 0.1254902, 1)
 theme_override_font_sizes/font_size = 40
 
 [node name="PointsPlayer2" type="Label" parent="." unique_id=713454456]
@@ -33,6 +34,7 @@ offset_left = 954.0
 offset_top = 40.0
 offset_right = 994.0
 offset_bottom = 95.0
+theme_override_colors/font_color = Color(0.3882353, 0.2509804, 0.1254902, 1)
 theme_override_font_sizes/font_size = 40
 
 [node name="Countdown" type="Control" parent="." unique_id=1442688542]
@@ -50,11 +52,13 @@ one_shot = true
 [node name="CountdownLabel" type="Label" parent="Countdown" unique_id=409602526]
 process_mode = 3
 layout_mode = 0
-offset_left = -78.0
-offset_top = -61.0
-offset_right = 83.0
-offset_bottom = 63.0
-theme_override_font_sizes/font_size = 90
+offset_left = -262.0
+offset_top = -226.0
+offset_right = 274.0
+offset_bottom = 183.0
+theme_override_colors/font_color = Color(0.3882353, 0.2509804, 0.1254902, 1)
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 300
 horizontal_alignment = 1
 
 [node name="ContainerBullets1" type="HBoxContainer" parent="." unique_id=137357497]
