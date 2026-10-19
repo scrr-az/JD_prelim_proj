@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cldokl1heqw8i" path="res://scenes/walls_n_portals.tscn" id="3_fkit3"]
 [ext_resource type="PackedScene" uid="uid://cqhgdepuddsbs" path="res://scenes/static_obstacle.tscn" id="4_76aq6"]
 [ext_resource type="PackedScene" uid="uid://bledd41ugl8i3" path="res://scenes/moving_obstacle.tscn" id="5_8s0yo"]
+[ext_resource type="Texture2D" uid="uid://b803s5spurveh" path="res://sprites/bg.png" id="6_fkit3"]
 
 [node name="Node2D" type="Node2D" unique_id=106943654]
 
@@ -32,3 +33,7 @@ position = Vector2(114, 231)
 position = Vector2(147, -61)
 
 [node name="MovingObstacle" parent="." unique_id=83186563 instance=ExtResource("5_8s0yo")]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=247976841]
+show_behind_parent = true
+texture = ExtResource("6_fkit3")

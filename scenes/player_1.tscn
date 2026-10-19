@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dqbjnr2mnhc8k" path="res://scripts/player.gd" id="1_jkihx"]
 [ext_resource type="PackedScene" uid="uid://dqqr2y5m8ndbt" path="res://scenes/bullet.tscn" id="2_qgfdq"]
 [ext_resource type="Texture2D" uid="uid://1e0hot3jcfxa" path="res://sprites/Oto.jpg" id="3_cyakk"]
-[ext_resource type="Texture2D" uid="uid://caiypxew6fpsg" path="res://sprites/a-hand-gripping-a-revolver-firmly-against-a-plain-transparent-background-emphasizing-gun-control-and-safety-awareness-hand-holding-revolver-on-transparent-background-free-png.png" id="4_7m5b5"]
+[ext_resource type="Texture2D" uid="uid://bbfck0amb52j1" path="res://sprites/hand.png" id="4_f2c3w"]
 [ext_resource type="Texture2D" uid="uid://p7dsp4eh2yuu" path="res://sprites/Screenshot_20261006_144109.png" id="6_ngimn"]
 [ext_resource type="Texture2D" uid="uid://bf87rr1fk1k5h" path="res://sprites/icon.svg" id="7_3wjnj"]
 
@@ -45,9 +45,9 @@ texture = ExtResource("3_cyakk")
 [node name="Hand" type="Node2D" parent="." unique_id=934984051]
 
 [node name="HandSprite" type="Sprite2D" parent="Hand" unique_id=1947566416]
-position = Vector2(82, -7)
-scale = Vector2(0.07184675, 0.0884755)
-texture = ExtResource("4_7m5b5")
+position = Vector2(110, -7)
+scale = Vector2(0.3, 0.367)
+texture = ExtResource("4_f2c3w")
 flip_h = true
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1916507428 groups=["player"]]

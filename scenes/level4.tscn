@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dnf42cckajsdu" path="res://scenes/player_1.tscn" id="2_kq3r6"]
 [ext_resource type="PackedScene" uid="uid://cldokl1heqw8i" path="res://scenes/walls_n_portals.tscn" id="3_im88e"]
 [ext_resource type="PackedScene" uid="uid://cqhgdepuddsbs" path="res://scenes/static_obstacle.tscn" id="4_vxn4p"]
+[ext_resource type="Texture2D" uid="uid://b803s5spurveh" path="res://sprites/bg.png" id="5_kq3r6"]
 
 [node name="Node2D" type="Node2D" unique_id=106943654]
 
@@ -25,3 +26,7 @@ position = Vector2(-85, 287)
 
 [node name="Obstacle4" parent="." unique_id=1751651958 instance=ExtResource("4_vxn4p")]
 position = Vector2(114, 231)
+
+[node name="Background" type="Sprite2D" parent="." unique_id=628765513]
+show_behind_parent = true
+texture = ExtResource("5_kq3r6")
