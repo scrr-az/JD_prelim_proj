@@ -26,7 +26,7 @@ offset_right = 653.0
 offset_bottom = 95.0
 offset_transform_position = Vector2(-2.185, 0)
 theme_override_colors/font_color = Color(0.3882353, 0.2509804, 0.1254902, 1)
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 60
 
 [node name="PointsPlayer2" type="Label" parent="." unique_id=713454456]
 layout_mode = 0
@@ -35,7 +35,7 @@ offset_top = 40.0
 offset_right = 994.0
 offset_bottom = 95.0
 theme_override_colors/font_color = Color(0.3882353, 0.2509804, 0.1254902, 1)
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 60
 
 [node name="Countdown" type="Control" parent="." unique_id=1442688542]
 process_mode = 3
@@ -69,30 +69,35 @@ offset_right = 276.0
 offset_bottom = 783.0
 
 [node name="Bullet5" type="TextureRect" parent="ContainerBullets1" unique_id=1061348004]
+modulate = Color(0.09803922, 0.74509805, 1, 1)
 layout_mode = 2
 texture = ExtResource("2_x4jx1")
 expand_mode = 2
 stretch_mode = 4
 
 [node name="Bullet4" type="TextureRect" parent="ContainerBullets1" unique_id=658824988]
+modulate = Color(0.09803922, 0.74509805, 1, 1)
 layout_mode = 2
 texture = ExtResource("2_x4jx1")
 expand_mode = 2
 stretch_mode = 4
 
 [node name="Bullet3" type="TextureRect" parent="ContainerBullets1" unique_id=782244429]
+modulate = Color(0.09803922, 0.74509805, 1, 1)
 layout_mode = 2
 texture = ExtResource("2_x4jx1")
 expand_mode = 2
 stretch_mode = 4
 
 [node name="Bullet2" type="TextureRect" parent="ContainerBullets1" unique_id=1434329037]
+modulate = Color(0.09803922, 0.74509805, 1, 1)
 layout_mode = 2
 texture = ExtResource("2_x4jx1")
 expand_mode = 2
 stretch_mode = 4
 
 [node name="Bullet1" type="TextureRect" parent="ContainerBullets1" unique_id=1269004648]
+modulate = Color(0.09803922, 0.74509805, 1, 1)
 layout_mode = 2
 texture = ExtResource("2_x4jx1")
 expand_mode = 2
@@ -100,36 +105,42 @@ stretch_mode = 4
 
 [node name="ContainerBullets2" type="HBoxContainer" parent="." unique_id=1670316161]
 layout_mode = 0
-offset_left = 1333.0
+offset_left = 1321.0
 offset_top = 742.0
-offset_right = 1568.0
+offset_right = 1556.0
 offset_bottom = 783.0
+alignment = 2
 
-[node name="Bullet1" type="TextureRect" parent="ContainerBullets2" unique_id=951770450]
-layout_mode = 2
-texture = ExtResource("2_x4jx1")
-expand_mode = 2
-stretch_mode = 4
-
-[node name="Bullet2" type="TextureRect" parent="ContainerBullets2" unique_id=480050905]
-layout_mode = 2
-texture = ExtResource("2_x4jx1")
-expand_mode = 2
-stretch_mode = 4
-
-[node name="Bullet3" type="TextureRect" parent="ContainerBullets2" unique_id=1826912825]
+[node name="Bullet5" type="TextureRect" parent="ContainerBullets2" unique_id=1676491646]
+modulate = Color(1, 0.2, 0, 1)
 layout_mode = 2
 texture = ExtResource("2_x4jx1")
 expand_mode = 2
 stretch_mode = 4
 
 [node name="Bullet4" type="TextureRect" parent="ContainerBullets2" unique_id=2084283921]
+modulate = Color(1, 0.2, 0, 1)
 layout_mode = 2
 texture = ExtResource("2_x4jx1")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Bullet5" type="TextureRect" parent="ContainerBullets2" unique_id=1676491646]
+[node name="Bullet3" type="TextureRect" parent="ContainerBullets2" unique_id=1826912825]
+modulate = Color(1, 0.2, 0, 1)
+layout_mode = 2
+texture = ExtResource("2_x4jx1")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Bullet2" type="TextureRect" parent="ContainerBullets2" unique_id=480050905]
+modulate = Color(1, 0.2, 0, 1)
+layout_mode = 2
+texture = ExtResource("2_x4jx1")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Bullet1" type="TextureRect" parent="ContainerBullets2" unique_id=951770450]
+modulate = Color(1, 0.2, 0, 1)
 layout_mode = 2
 texture = ExtResource("2_x4jx1")
 expand_mode = 2
