@@ -100,6 +100,10 @@ func death():
 	# make all bullets stop moving and deactivate their collision so there are no more collisions
 	get_tree().paused = true
 		
+	if is_p1:
+		Global.play_sound("res://audio/p1_death.wav")
+	else:
+		Global.play_sound("res://audio/p2_death.wav")
 	# play the death animation
 	$Sprite2D.visible = false
 	$SpriteDead.visible = true
