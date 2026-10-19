@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dqbjnr2mnhc8k" path="res://scripts/player.gd" id="1_v7tvf"]
 [ext_resource type="PackedScene" uid="uid://dqqr2y5m8ndbt" path="res://scenes/bullet.tscn" id="2_povjg"]
 [ext_resource type="Texture2D" uid="uid://p7dsp4eh2yuu" path="res://sprites/Screenshot_20261006_144109.png" id="3_hkoe6"]
+[ext_resource type="Texture2D" uid="uid://t7phcujeodxo" path="res://sprites/player2.png" id="3_povjg"]
 [ext_resource type="Texture2D" uid="uid://bbfck0amb52j1" path="res://sprites/hand.png" id="4_v7tvf"]
 [ext_resource type="Texture2D" uid="uid://1e0hot3jcfxa" path="res://sprites/Oto.jpg" id="5_b2c7a"]
 [ext_resource type="Texture2D" uid="uid://bf87rr1fk1k5h" path="res://sprites/icon.svg" id="6_x4ukj"]
@@ -40,8 +41,8 @@ is_p1 = false
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=776641270]
 position = Vector2(0.99993896, 0)
-scale = Vector2(1.2300887, 0.9852941)
-texture = ExtResource("3_hkoe6")
+scale = Vector2(0.23, 0.237)
+texture = ExtResource("3_povjg")
 
 [node name="Hand" type="Node2D" parent="." unique_id=364160589]
 position = Vector2(1, -1)
@@ -60,7 +61,6 @@ position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_ub6hr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=221680566]
-position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_13ojl")
 
 [node name="SpriteDead" type="AnimatedSprite2D" parent="." unique_id=494996710]
