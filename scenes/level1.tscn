@@ -20,7 +20,7 @@
 position = Vector2(2, 0)
 
 [node name="UI" parent="." unique_id=905130245 instance=ExtResource("5_ru4tf")]
-offset_left = -803.0
-offset_top = -419.0
-offset_right = -801.4
-offset_bottom = -419.0
+offset_left = -798.0
+offset_top = -425.0
+offset_right = -798.0
+offset_bottom = -425.0

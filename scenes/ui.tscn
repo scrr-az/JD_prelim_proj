@@ -19,20 +19,19 @@ script = ExtResource("1_nt7q6")
 [node name="PointsPlayer1" type="Label" parent="." unique_id=1424037018]
 layout_mode = 0
 offset_left = 613.0
-offset_top = 42.0
+offset_top = 40.0
 offset_right = 653.0
-offset_bottom = 65.0
+offset_bottom = 95.0
+offset_transform_position = Vector2(-2.185, 0)
 theme_override_font_sizes/font_size = 40
-text = "0"
 
 [node name="PointsPlayer2" type="Label" parent="." unique_id=713454456]
 layout_mode = 0
-offset_left = 955.0
-offset_top = 43.0
-offset_right = 995.0
-offset_bottom = 98.0
+offset_left = 954.0
+offset_top = 40.0
+offset_right = 994.0
+offset_bottom = 95.0
 theme_override_font_sizes/font_size = 40
-text = "0"
 
 [node name="TimeLeft" type="Label" parent="." unique_id=1962132772]
 layout_mode = 0
