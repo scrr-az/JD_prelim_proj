@@ -6,8 +6,11 @@ var bullet_speed := 550
 
 var sudden_death_timer: Timer												## timer for boosting bullet speed (to avoid draws)
 
-var points1 := 0
-var points2 := 0
+var points1 : int = 0
+var points2 : int = 0
+
+var bullets1 : int = 5
+var bullets2 : int = 5
 
 func _ready():
 	#setup_sudden_death_timer()
@@ -38,3 +41,9 @@ func player_1_won():
 	
 func player_2_won():
 	points2 += 1
+	
+func player_1_shot():
+	bullets1 -= 1
+
+func player_2_shot():
+	bullets2 -= 1

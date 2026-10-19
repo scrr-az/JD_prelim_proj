@@ -72,8 +72,10 @@ func player_movement(delta):
 	
 func change_bullet_color():
 	if is_p1:
+		Global.player_1_shot()
 		bullet_color = Color(0.1, 0.745, 1)
 	else:
+		Global.player_2_shot()
 		bullet_color = Color(1, 0.2, 0)
 	fire()
 	
