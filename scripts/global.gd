@@ -10,18 +10,20 @@ var points1 := 0
 var points2 := 0
 
 func _ready():
-	setup_sudden_death_timer()
+	#setup_sudden_death_timer()
+	pass
 
-func _on_sudden_death_timer_timeout():										## boost speed for both old and new bullets
-	bullet_speed = boosted_speed
-
-func setup_sudden_death_timer():											## sets up timer
-	sudden_death_timer = Timer.new()
-	sudden_death_timer.one_shot = true
-	sudden_death_timer.wait_time = 60.0
-	sudden_death_timer.timeout.connect(_on_sudden_death_timer_timeout)
-	add_child(sudden_death_timer)
-	sudden_death_timer.start()
+#func _on_sudden_death_timer_timeout():										## boost speed for both old and new bullets
+	#bullet_speed = boosted_speed
+#
+#
+#func setup_sudden_death_timer():											## sets up timer
+	#sudden_death_timer = Timer.new()
+	#sudden_death_timer.one_shot = true
+	#sudden_death_timer.wait_time = 60.0
+	#sudden_death_timer.timeout.connect(_on_sudden_death_timer_timeout)
+	#add_child(sudden_death_timer)
+	#sudden_death_timer.start()
 
 func play_sound(sound_path : String):
 	var audio_player := AudioStreamPlayer.new()
