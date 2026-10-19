@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cldokl1heqw8i" path="res://scenes/walls_n_portals.tscn" id="3_alqfr"]
 [ext_resource type="PackedScene" uid="uid://cqhgdepuddsbs" path="res://scenes/static_obstacle.tscn" id="4_2k3dv"]
 [ext_resource type="PackedScene" uid="uid://bd3sghh1k7mfw" path="res://scenes/ui.tscn" id="5_alqfr"]
+[ext_resource type="Texture2D" uid="uid://b803s5spurveh" path="res://sprites/bg.png" id="5_alqfr"]
 
 [node name="Node2D" type="Node2D" unique_id=106943654]
 
@@ -26,3 +27,7 @@ offset_left = -798.0
 offset_top = -425.0
 offset_right = -798.0
 offset_bottom = -425.0
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1937355692]
+show_behind_parent = true
+texture = ExtResource("5_alqfr")
