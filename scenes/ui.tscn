@@ -32,10 +32,3 @@ offset_top = 40.0
 offset_right = 994.0
 offset_bottom = 95.0
 theme_override_font_sizes/font_size = 40
-
-[node name="TimeLeft" type="Label" parent="." unique_id=1962132772]
-layout_mode = 0
-offset_left = -57.0
-offset_top = -47.0
-offset_right = -17.0
-offset_bottom = -24.0
