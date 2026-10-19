@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dnf42cckajsdu" path="res://scenes/player_1.tscn" id="2_2k3dv"]
 [ext_resource type="PackedScene" uid="uid://cldokl1heqw8i" path="res://scenes/walls_n_portals.tscn" id="3_alqfr"]
 [ext_resource type="PackedScene" uid="uid://cqhgdepuddsbs" path="res://scenes/static_obstacle.tscn" id="4_2k3dv"]
+[ext_resource type="PackedScene" uid="uid://bd3sghh1k7mfw" path="res://scenes/ui.tscn" id="5_alqfr"]
 
 [node name="Node2D" type="Node2D" unique_id=106943654]
 
@@ -19,3 +20,9 @@
 
 [node name="Obstacle2" parent="." unique_id=287423638 instance=ExtResource("4_2k3dv")]
 position = Vector2(95, -259)
+
+[node name="UI" parent="." unique_id=905130245 instance=ExtResource("5_alqfr")]
+offset_left = -816.0
+offset_top = -411.0
+offset_right = -816.0
+offset_bottom = -411.0

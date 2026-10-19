@@ -103,6 +103,11 @@ func death():
 	
 	get_tree().paused = false
 	
+	if is_p1:
+		Global.player_2_won()
+	else:
+		Global.player_1_won()
+	
 	# get the number of the current scene from the file name and change scene to the next one
 	var current_scene = get_tree().current_scene.scene_file_path
 	var scene_number = int(current_scene.get_file().trim_prefix("level").trim_suffix(".tscn"))

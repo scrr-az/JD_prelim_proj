@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bd3sghh1k7mfw"]
+
+[ext_resource type="Script" uid="uid://daumv5jud4gin" path="res://scripts/ui.gd" id="1_nt7q6"]
+
+[node name="UI" type="Control" unique_id=905130245]
+layout_mode = 3
+anchor_left = -0.499
+anchor_top = -0.467
+anchor_right = 0.5
+anchor_bottom = 0.53300005
+offset_left = 0.4000244
+offset_top = -0.3999939
+offset_right = 2.0
+offset_bottom = -0.40005493
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nt7q6")
+
+[node name="PointsPlayer1" type="Label" parent="." unique_id=1424037018]
+layout_mode = 0
+offset_left = 613.0
+offset_top = 42.0
+offset_right = 653.0
+offset_bottom = 65.0
+theme_override_font_sizes/font_size = 40
+text = "0"
+
+[node name="PointsPlayer2" type="Label" parent="." unique_id=713454456]
+layout_mode = 0
+offset_left = 955.0
+offset_top = 43.0
+offset_right = 995.0
+offset_bottom = 98.0
+theme_override_font_sizes/font_size = 40
+text = "0"
+
+[node name="TimeLeft" type="Label" parent="." unique_id=1962132772]
+layout_mode = 0
+offset_left = -57.0
+offset_top = -47.0
+offset_right = -17.0
+offset_bottom = -24.0
