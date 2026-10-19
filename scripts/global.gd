@@ -19,3 +19,11 @@ func setup_sudden_death_timer():											## sets up timer
 	sudden_death_timer.timeout.connect(_on_sudden_death_timer_timeout)
 	add_child(sudden_death_timer)
 	sudden_death_timer.start()
+
+func play_sound(sound_path : String):
+	var audio_player := AudioStreamPlayer.new()
+	audio_player.stream = load(sound_path)
+	audio_player.volume_db = -15.0
+	add_child(audio_player)
+	audio_player.play()
+	audio_player.finished.connect(audio_player.queue_free)

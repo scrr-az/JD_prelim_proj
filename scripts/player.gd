@@ -77,7 +77,7 @@ func change_bullet_color():
 		bullet_color = Color(1, 0.2, 0)
 	fire()
 	
-func fire():											## creates bullet
+func fire():											## creates bullet, plays sound
 	if bullet_counter > 0:
 		var bullet = bullet_scene.instantiate()
 		
@@ -88,9 +88,13 @@ func fire():											## creates bullet
 		
 		get_parent().add_child(bullet)
 		
+		Global.play_sound("res://audio/gunshot.wav")
+		
 		bullet_counter = bullet_counter-1
 		#print("R: " + str(bullet.rot) + " D: " + str(bullet.dir) + " S: " + str(bullet.speed))
 		#print(str(bullet_counter))
+	else:
+		Global.play_sound("res://audio/empty.wav")
 		
 func death():
 	# make all bullets stop moving and deactivate their collision so there are no more collisions
