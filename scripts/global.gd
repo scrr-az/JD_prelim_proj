@@ -6,6 +6,9 @@ var bullet_speed := 550
 
 var sudden_death_timer: Timer												## timer for boosting bullet speed (to avoid draws)
 
+var points1 := 0
+var points2 := 0
+
 func _ready():
 	setup_sudden_death_timer()
 
@@ -27,3 +30,9 @@ func play_sound(sound_path : String):
 	add_child(audio_player)
 	audio_player.play()
 	audio_player.finished.connect(audio_player.queue_free)
+	
+func player_1_won():
+	points1 += 1
+	
+func player_2_won():
+	points2 += 1

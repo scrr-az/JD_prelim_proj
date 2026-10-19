@@ -18,6 +18,7 @@ curve = SubResource("Curve2D_ru4tf")
 [node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=824608594]
 position = Vector2(-1, 428)
 rotation = -1.5707964
+rotates = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="PathFollow2D" unique_id=59788971 groups=["obstacle"]]
 collision_layer = 8
