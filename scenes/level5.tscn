@@ -30,9 +30,6 @@ position = Vector2(-85, 287)
 [node name="Obstacle4" parent="." unique_id=1751651958 instance=ExtResource("4_76aq6")]
 position = Vector2(114, 231)
 
-[node name="StaticObstacle" parent="." unique_id=1216369295 instance=ExtResource("4_76aq6")]
-position = Vector2(147, -61)
-
 [node name="MovingObstacle" parent="." unique_id=83186563 instance=ExtResource("5_8s0yo")]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=247976841]

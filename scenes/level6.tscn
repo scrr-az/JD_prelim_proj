@@ -41,3 +41,6 @@ offset_left = -798.0
 offset_top = -425.0
 offset_right = -796.4
 offset_bottom = -425.0
+
+[node name="StaticObstacle" parent="." unique_id=585131510 instance=ExtResource("4_3qbet")]
+position = Vector2(147, -61)
