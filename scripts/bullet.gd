@@ -1,8 +1,7 @@
 extends CharacterBody2D
 
 var pos : Vector2													## bullet position
-var rot : float														## bullet rotation (in radians)
-var justShot : bool = false
+var rot : float
 var stopped: bool = false
 
 #var collision_buffer_timer: Timer
@@ -18,7 +17,7 @@ func _physics_process(delta):
 		return
 	
 	velocity = Vector2(Global.bullet_speed, 0).rotated(rot)
-	#move_and_slide()
+
 	# bullet movement (returns a KinematicCollision2D body if it collides with something)
 	var collisionInfo = move_and_collide(delta * velocity)
 	
@@ -29,6 +28,7 @@ func _physics_process(delta):
 		global_rotation = atan2(newVel.y, newVel.x)
 		rot = atan2(newVel.y, newVel.x)
 		
+		global_position = global_position + 0.01 * newVel
 		Global.play_sound("res://audio/ricochet.wav")
 	
 func stop_bullet():
@@ -42,9 +42,6 @@ func _on_area_2d_area_entered(area: Area2D):						## checks collisions
 			position.y *= -1
 		else:														# side portals
 			position.x *= -1
-	#if area.is_in_group("player"):
-		#if justShot:
-			#justShot = false
 			
 #func collision_buffer():											## avoid caravan bug
 	#$BulletArea2D.set_deferred("monitoring", false) 
