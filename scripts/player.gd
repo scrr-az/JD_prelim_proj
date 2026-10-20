@@ -17,6 +17,10 @@ var round_over : bool = false
 @export var is_p1 = true												## boolean for player specific stuff
 @onready var walk_animation = $SpriteWalk
 
+func _ready() -> void:
+	if not is_p1:
+		$SpriteWalk.flip_h = 1
+
 func _physics_process(delta):
 	if not round_over:
 		if is_p1:
