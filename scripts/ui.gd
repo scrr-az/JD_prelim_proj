@@ -21,6 +21,8 @@ func _process(_delta: float) -> void:
 	$PointsPlayer1.text = "%s" % Global.points1
 	$PointsPlayer2.text = "%s" % Global.points2
 	
+	$TimeLeftLabel.text = str(int(ceil(Global.end_of_times_timer.time_left)))
+	
 	# Turn the bullets that were used invisible in the ui
 	var lastBullet = $ContainerBullets1.get_node_or_null("Bullet" + str(Global.bullets1 + 1))
 	if(lastBullet):

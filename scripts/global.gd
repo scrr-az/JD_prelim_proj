@@ -4,7 +4,7 @@ const boosted_speed := 1000													## speed after sudden death
 
 var bullet_speed := 550
 
-var sudden_death_timer: Timer												## timer for boosting bullet speed (to avoid draws)
+var end_of_times_timer: Timer												## timer for boosting bullet speed (to avoid draws)
 
 var points1 : int = 0
 var points2 : int = 0
@@ -13,20 +13,25 @@ var bullets1 : int = 5
 var bullets2 : int = 5
 
 func _ready():
-	#setup_sudden_death_timer()
-	pass
+	setup_end_of_times_timer()
+	
+func _process(_delta: float) -> void:
+	var currentScene = get_tree().current_scene
+	if currentScene && currentScene.scene_file_path == "res://scenes/level1.tscn" && (end_of_times_timer == null || end_of_times_timer.is_stopped()):
+		end_of_times_timer.start()
 
-#func _on_sudden_death_timer_timeout():										## boost speed for both old and new bullets
-	#bullet_speed = boosted_speed
+func _on_end_of_times_timer_timeout():										## boost speed for both old and new bullets
+	points1 = 0
+	points2 = 0
+	get_tree().change_scene_to_file("res://scenes/main.tscn")
 #
 #
-#func setup_sudden_death_timer():											## sets up timer
-	#sudden_death_timer = Timer.new()
-	#sudden_death_timer.one_shot = true
-	#sudden_death_timer.wait_time = 60.0
-	#sudden_death_timer.timeout.connect(_on_sudden_death_timer_timeout)
-	#add_child(sudden_death_timer)
-	#sudden_death_timer.start()
+func setup_end_of_times_timer():											## sets up timer
+	end_of_times_timer = Timer.new()
+	end_of_times_timer.one_shot = true
+	end_of_times_timer.wait_time = 90.0
+	end_of_times_timer.timeout.connect(_on_end_of_times_timer_timeout)
+	add_child(end_of_times_timer)
 
 func play_sound(sound_path : String):
 	var audio_player := AudioStreamPlayer.new()
