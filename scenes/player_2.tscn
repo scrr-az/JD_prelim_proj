@@ -2,11 +2,14 @@
 
 [ext_resource type="Script" uid="uid://dqbjnr2mnhc8k" path="res://scripts/player.gd" id="1_v7tvf"]
 [ext_resource type="PackedScene" uid="uid://dqqr2y5m8ndbt" path="res://scenes/bullet.tscn" id="2_povjg"]
-[ext_resource type="Texture2D" uid="uid://p7dsp4eh2yuu" path="res://sprites/Screenshot_20261006_144109.png" id="3_hkoe6"]
 [ext_resource type="Texture2D" uid="uid://t7phcujeodxo" path="res://sprites/player2.png" id="3_povjg"]
 [ext_resource type="Texture2D" uid="uid://bbfck0amb52j1" path="res://sprites/hand.png" id="4_v7tvf"]
-[ext_resource type="Texture2D" uid="uid://1e0hot3jcfxa" path="res://sprites/Oto.jpg" id="5_b2c7a"]
-[ext_resource type="Texture2D" uid="uid://bf87rr1fk1k5h" path="res://sprites/icon.svg" id="6_x4ukj"]
+[ext_resource type="Texture2D" uid="uid://egxiehdap8m8" path="res://sprites/player2_death1.png" id="5_hkoe6"]
+[ext_resource type="Texture2D" uid="uid://bhgcwkb82opoo" path="res://sprites/player2_death2.png" id="6_ne6jw"]
+[ext_resource type="Texture2D" uid="uid://c5mwbgcdptdlo" path="res://sprites/player2_death3.png" id="7_b2c7a"]
+[ext_resource type="Texture2D" uid="uid://c83u8j6re6yh4" path="res://sprites/player2_death4.png" id="8_x4ukj"]
+[ext_resource type="Texture2D" uid="uid://d15bksqtat3t8" path="res://sprites/player2_walk1.png" id="9_b2c7a"]
+[ext_resource type="Texture2D" uid="uid://6tfbnsheh70j" path="res://sprites/player2_walk2.png" id="10_x4ukj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ub6hr"]
 size = Vector2(139, 134)
@@ -18,15 +21,44 @@ size = Vector2(139, 134)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_hkoe6")
+"texture": ExtResource("5_hkoe6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_b2c7a")
+"texture": ExtResource("6_ne6jw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_x4ukj")
+"texture": ExtResource("7_b2c7a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_x4ukj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_x4ukj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_x4ukj")
 }],
 "loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t4bc4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_povjg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_b2c7a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_povjg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_x4ukj")
+}],
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -40,8 +72,9 @@ bullet_scene = ExtResource("2_povjg")
 is_p1 = false
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=776641270]
+visible = false
 position = Vector2(0.99993896, 0)
-scale = Vector2(0.23, 0.237)
+scale = Vector2(-0.23, 0.237)
 texture = ExtResource("3_povjg")
 
 [node name="Hand" type="Node2D" parent="." unique_id=364160589]
@@ -67,6 +100,11 @@ shape = SubResource("RectangleShape2D_13ojl")
 [node name="SpriteDead" type="AnimatedSprite2D" parent="." unique_id=494996710]
 process_mode = 2
 visible = false
+scale = Vector2(0.24, 0.24)
 sprite_frames = SubResource("SpriteFrames_ub6hr")
+
+[node name="SpriteWalk" type="AnimatedSprite2D" parent="." unique_id=2136771176]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_t4bc4")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

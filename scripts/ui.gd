@@ -13,6 +13,7 @@ func _ready() -> void:
 	
 	$Countdown/CountdownLabel.text = "%s" % countdownValue
 	$Countdown/Timer.start()
+	Global.play_sound("res://audio/countdown.wav")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,8 +36,10 @@ func _on_timer_timeout() -> void:
 	if countdownValue > 0:
 		$Countdown/CountdownLabel.text = "%s" % countdownValue
 		$Countdown/Timer.start()
+		Global.play_sound("res://audio/countdown.wav")
 	elif countdownValue == 0:
 		$Countdown/CountdownLabel.text = "GO!"
+		Global.play_sound("res://audio/countdown_final.wav")
 		$Countdown/Timer.start()
 	else:
 		$Countdown/CountdownLabel.hide()

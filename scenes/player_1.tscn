@@ -2,11 +2,14 @@
 
 [ext_resource type="Script" uid="uid://dqbjnr2mnhc8k" path="res://scripts/player.gd" id="1_jkihx"]
 [ext_resource type="PackedScene" uid="uid://dqqr2y5m8ndbt" path="res://scenes/bullet.tscn" id="2_qgfdq"]
-[ext_resource type="Texture2D" uid="uid://1e0hot3jcfxa" path="res://sprites/Oto.jpg" id="3_cyakk"]
 [ext_resource type="Texture2D" uid="uid://feg0gg0eba6q" path="res://sprites/player1.png" id="3_jkihx"]
 [ext_resource type="Texture2D" uid="uid://bbfck0amb52j1" path="res://sprites/hand.png" id="4_f2c3w"]
-[ext_resource type="Texture2D" uid="uid://p7dsp4eh2yuu" path="res://sprites/Screenshot_20261006_144109.png" id="6_ngimn"]
-[ext_resource type="Texture2D" uid="uid://bf87rr1fk1k5h" path="res://sprites/icon.svg" id="7_3wjnj"]
+[ext_resource type="Texture2D" uid="uid://duvsadhm1nttc" path="res://sprites/player1_death1.png" id="5_qgfdq"]
+[ext_resource type="Texture2D" uid="uid://dvbh21qyy6mfn" path="res://sprites/player1_death2.png" id="6_cyakk"]
+[ext_resource type="Texture2D" uid="uid://bdxpywuqo37de" path="res://sprites/player1_death3.png" id="7_7m5b5"]
+[ext_resource type="Texture2D" uid="uid://b43dmiq0gn26q" path="res://sprites/player1_death4.png" id="8_xfu11"]
+[ext_resource type="Texture2D" uid="uid://clpv6olquh5nc" path="res://sprites/player1_walk1.png" id="9_7m5b5"]
+[ext_resource type="Texture2D" uid="uid://b4tcjcovei6sb" path="res://sprites/player1_walk2.png" id="10_xfu11"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8hn45"]
 size = Vector2(126, 122)
@@ -18,13 +21,42 @@ size = Vector2(126, 122)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_cyakk")
+"texture": ExtResource("5_qgfdq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_ngimn")
+"texture": ExtResource("6_cyakk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_3wjnj")
+"texture": ExtResource("7_7m5b5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xfu11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xfu11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xfu11")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hkoe6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_jkihx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7m5b5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jkihx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_xfu11")
 }],
 "loop": 0,
 "name": &"default",
@@ -39,6 +71,7 @@ script = ExtResource("1_jkihx")
 bullet_scene = ExtResource("2_qgfdq")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=906502490]
+visible = false
 scale = Vector2(0.22992702, 0.23705181)
 texture = ExtResource("3_jkihx")
 
@@ -64,7 +97,12 @@ shape = SubResource("RectangleShape2D_vr6w2")
 process_mode = 2
 visible = false
 position = Vector2(6.0000057, -0.9999981)
-scale = Vector2(0.3059702, 0.24659865)
+scale = Vector2(0.24, 0.24)
 sprite_frames = SubResource("SpriteFrames_vr6w2")
+
+[node name="SpriteWalk" type="AnimatedSprite2D" parent="." unique_id=82495381]
+process_mode = 1
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_hkoe6")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

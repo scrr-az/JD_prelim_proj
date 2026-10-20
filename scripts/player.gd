@@ -15,6 +15,7 @@ var bullet_counter = 5													## number of bullets per player
 var round_over : bool = false
 
 @export var is_p1 = true												## boolean for player specific stuff
+@onready var walk_animation = $SpriteWalk
 
 func _physics_process(delta):
 	if not round_over:
@@ -55,6 +56,7 @@ func player_movement(delta):
 		input = get_input()
 		
 		if input == Vector2.ZERO:
+			walk_animation.stop()
 			if velocity.length() > (friction * delta):
 				velocity -= velocity.normalized() * (4*friction * delta)
 			else:
@@ -62,11 +64,19 @@ func player_movement(delta):
 		else:
 			velocity += (input * accel * delta)
 			velocity = velocity.limit_length(max_speed)
-			
-		if velocity.x >= 0:											# flips player sprite depending on direction
-			$Sprite2D.flip_h = 0
-		else:
-			$Sprite2D.flip_h = 1
+			walk_animation.play("default")
+			walk_animation.flip_h = input.x < 0
+		
+		#if is_p1:
+			#if velocity.x >= 0:											# flips player sprite depending on direction
+				#$Sprite2D.flip_h = 0
+			#else:
+				#$Sprite2D.flip_h = 1
+		#else:
+			#if velocity.x >= 0:											# flips player sprite depending on direction
+				#$Sprite2D.flip_h = 1
+			#else:
+				#$Sprite2D.flip_h = 0
 		
 		move_and_slide()
 	
@@ -92,7 +102,9 @@ func fire():											## creates bullet, plays sound
 		
 		Global.play_sound("res://audio/gunshot.wav")
 		
-		bullet_counter = bullet_counter-1
+		var current_scene = get_tree().current_scene.scene_file_path
+		if current_scene != "res://scenes/main.tscn":
+			bullet_counter = bullet_counter-1
 		#print("R: " + str(bullet.rot) + " D: " + str(bullet.dir) + " S: " + str(bullet.speed))
 		#print(str(bullet_counter))
 	else:
@@ -107,7 +119,7 @@ func death():
 	else:
 		Global.play_sound("res://audio/p2_death.wav")
 	# play the death animation
-	$Sprite2D.visible = false
+	$SpriteWalk.visible = false
 	$SpriteDead.visible = true
 	$SpriteDead.play()
 	await $SpriteDead.animation_finished
