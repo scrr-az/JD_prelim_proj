@@ -35,6 +35,16 @@ text = "START"
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_b3qua")
 
+[node name="Label2" type="Label" parent="." unique_id=1393271562]
+offset_left = -446.0
+offset_top = -368.0
+offset_right = 149.0
+offset_bottom = -299.0
+scale = Vector2(1.5, 1.5)
+theme_override_colors/font_color = Color(0.38647342, 0.25077, 0.12355999, 1)
+theme_override_font_sizes/font_size = 50
+text = "QUANTUM     GUN FIGHT"
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=288225239]
 
 [node name="Wall2" type="StaticBody2D" parent="." unique_id=774032764]
