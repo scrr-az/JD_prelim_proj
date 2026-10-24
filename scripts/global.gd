@@ -27,7 +27,7 @@ func _on_end_of_times_timer_timeout():										## boost speed for both old and 
 func setup_end_of_times_timer():											## sets up timer
 	end_of_times_timer = Timer.new()
 	end_of_times_timer.one_shot = true
-	end_of_times_timer.wait_time = 5.0
+	end_of_times_timer.wait_time = 90.0
 	end_of_times_timer.timeout.connect(_on_end_of_times_timer_timeout)
 	add_child(end_of_times_timer)
 
