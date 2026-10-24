@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://bhaqi1ddlu1qo"]
+
+[ext_resource type="Script" uid="uid://bkeft7t1wv1aa" path="res://scripts/end_menu.gd" id="1_87tj7"]
+[ext_resource type="PackedScene" uid="uid://5gsctkcopwe" path="res://scenes/player_2.tscn" id="2_0aktc"]
+[ext_resource type="PackedScene" uid="uid://dnf42cckajsdu" path="res://scenes/player_1.tscn" id="3_pwu44"]
+[ext_resource type="Texture2D" uid="uid://b803s5spurveh" path="res://sprites/bg.png" id="4_wqo5a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8hn45"]
+size = Vector2(512, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tabng"]
+size = Vector2(21, 800.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ub6hr"]
+size = Vector2(1621, 10)
+
+[node name="EndMenu" type="Node2D" unique_id=1135476243]
+script = ExtResource("1_87tj7")
+
+[node name="Player2" parent="." unique_id=1990114457 instance=ExtResource("2_0aktc")]
+
+[node name="Player1" parent="." unique_id=658639154 instance=ExtResource("3_pwu44")]
+
+[node name="BackArea" type="Area2D" parent="." unique_id=1508516496]
+position = Vector2(626, 296)
+collision_mask = 4
+
+[node name="Label" type="Label" parent="BackArea" unique_id=969942260]
+offset_left = -409.0
+offset_top = -15.0
+offset_right = 112.0
+offset_bottom = 54.0
+theme_override_colors/font_color = Color(0.38647342, 0.25077, 0.12355999, 1)
+theme_override_font_sizes/font_size = 50
+text = "BACK TO MAIN MENU"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackArea" unique_id=742148785]
+position = Vector2(-148, 21.5)
+shape = SubResource("RectangleShape2D_8hn45")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=288225239]
+
+[node name="Wall2" type="StaticBody2D" parent="." unique_id=774032764]
+position = Vector2(-800, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2" unique_id=1594375686]
+position = Vector2(-11, 0.5)
+shape = SubResource("RectangleShape2D_tabng")
+
+[node name="Wall3" type="StaticBody2D" parent="." unique_id=1263993952]
+position = Vector2(0, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3" unique_id=2098460797]
+position = Vector2(-1.5, 5)
+shape = SubResource("RectangleShape2D_ub6hr")
+
+[node name="Wall5" type="StaticBody2D" parent="." unique_id=1504113123]
+position = Vector2(11, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall5" unique_id=1558183293]
+position = Vector2(-11, 0.5)
+shape = SubResource("RectangleShape2D_tabng")
+
+[node name="Wall4" type="StaticBody2D" parent="." unique_id=961183471]
+position = Vector2(-3, -410)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall4" unique_id=1793549856]
+position = Vector2(-1.5, 5)
+shape = SubResource("RectangleShape2D_ub6hr")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=292252835]
+show_behind_parent = true
+texture = ExtResource("4_wqo5a")
+
+[node name="PointsPlayer1" type="Label" parent="." unique_id=219728877]
+offset_left = -183.0
+offset_top = -84.0
+offset_right = -114.0
+offset_bottom = 81.0
+offset_transform_position = Vector2(-2.185, 0)
+theme_override_colors/font_color = Color(0.3882353, 0.2509804, 0.1254902, 1)
+theme_override_font_sizes/font_size = 120
+text = "0"
+horizontal_alignment = 1
+
+[node name="PointsPlayer2" type="Label" parent="." unique_id=183180845]
+offset_left = 102.0
+offset_top = -85.0
+offset_right = 171.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.3882353, 0.2509804, 0.1254902, 1)
+theme_override_font_sizes/font_size = 120
+text = "0"
+horizontal_alignment = 1
+
+[connection signal="area_entered" from="BackArea" to="." method="_on_back_area_area_entered"]

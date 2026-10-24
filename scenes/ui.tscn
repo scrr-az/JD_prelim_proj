@@ -27,6 +27,7 @@ offset_bottom = 132.0
 offset_transform_position = Vector2(-2.185, 0)
 theme_override_colors/font_color = Color(0.3882353, 0.2509804, 0.1254902, 1)
 theme_override_font_sizes/font_size = 60
+horizontal_alignment = 1
 
 [node name="PointsPlayer2" type="Label" parent="." unique_id=713454456]
 layout_mode = 0
@@ -36,6 +37,7 @@ offset_right = 994.0
 offset_bottom = 132.0
 theme_override_colors/font_color = Color(0.3882353, 0.2509804, 0.1254902, 1)
 theme_override_font_sizes/font_size = 60
+horizontal_alignment = 1
 
 [node name="Countdown" type="Control" parent="." unique_id=1442688542]
 process_mode = 3

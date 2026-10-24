@@ -21,15 +21,13 @@ func _process(_delta: float) -> void:
 		end_of_times_timer.start()
 
 func _on_end_of_times_timer_timeout():										## boost speed for both old and new bullets
-	points1 = 0
-	points2 = 0
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	get_tree().change_scene_to_file("res://scenes/end_menu.tscn")
 #
 #
 func setup_end_of_times_timer():											## sets up timer
 	end_of_times_timer = Timer.new()
 	end_of_times_timer.one_shot = true
-	end_of_times_timer.wait_time = 90.0
+	end_of_times_timer.wait_time = 5.0
 	end_of_times_timer.timeout.connect(_on_end_of_times_timer_timeout)
 	add_child(end_of_times_timer)
 

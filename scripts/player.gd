@@ -22,67 +22,53 @@ func _ready() -> void:
 		$SpriteWalk.flip_h = 1
 
 func _physics_process(delta):
-	if not round_over:
-		if is_p1:
-			$Hand.look_at(get_global_mouse_position())						# moves hand to mouse
-		else:
-			var input_vec : Vector2 = Vector2(								# gets joystick input
-				Input.get_axis("p2_lookleft", "p2_lookright"),
-				Input.get_axis("p2_lookup", "p2_lookdown")
-			)
+	if is_p1:
+		$Hand.look_at(get_global_mouse_position())						# moves hand to mouse
+	else:
+		var input_vec : Vector2 = Vector2(								# gets joystick input
+			Input.get_axis("p2_lookleft", "p2_lookright"),
+			Input.get_axis("p2_lookup", "p2_lookdown")
+		)
 			
-			if input_vec.length() >= deadzone:								# gets hand angle
-				target_angle = input_vec.angle() 
+		if input_vec.length() >= deadzone:								# gets hand angle
+			target_angle = input_vec.angle() 
 				
-			if rotation != target_angle:									# points hand to angle
-				$Hand.rotation = target_angle
+		if rotation != target_angle:									# points hand to angle
+			$Hand.rotation = target_angle
 				
-		if Input.is_action_just_pressed("p1_shoot") and is_p1:				# p1 shoots
-			change_bullet_color()
-		if Input.is_action_just_pressed("p2_shoot") and not is_p1:			# p2 shoots
-			change_bullet_color()
+	if Input.is_action_just_pressed("p1_shoot") and is_p1:				# p1 shoots
+		change_bullet_color()
+	if Input.is_action_just_pressed("p2_shoot") and not is_p1:			# p2 shoots
+		change_bullet_color()
 			
-		player_movement(delta)
+	player_movement(delta)
 
 func get_input():
-	if not round_over:
-		if is_p1:
-			input.x = int(Input.is_action_pressed("p1_right")) - int(Input.is_action_pressed("p1_left"))
-			input.y = int(Input.is_action_pressed("p1_down")) - int(Input.is_action_pressed("p1_up"))
-		else:
-			input.x = int(Input.is_action_pressed("p2_right")) - int(Input.is_action_pressed("p2_left"))
-			input.y = int(Input.is_action_pressed("p2_down")) - int(Input.is_action_pressed("p2_up"))
+	if is_p1:
+		input.x = int(Input.is_action_pressed("p1_right")) - int(Input.is_action_pressed("p1_left"))
+		input.y = int(Input.is_action_pressed("p1_down")) - int(Input.is_action_pressed("p1_up"))
+	else:
+		input.x = int(Input.is_action_pressed("p2_right")) - int(Input.is_action_pressed("p2_left"))
+		input.y = int(Input.is_action_pressed("p2_down")) - int(Input.is_action_pressed("p2_up"))
 		
-		return input.normalized()
+	return input.normalized()
 	
 func player_movement(delta):
-	if not round_over:
-		input = get_input()
+	input = get_input()
 		
-		if input == Vector2.ZERO:
-			walk_animation.stop()
-			if velocity.length() > (friction * delta):
-				velocity -= velocity.normalized() * (4*friction * delta)
-			else:
-				velocity = Vector2.ZERO
+	if input == Vector2.ZERO:
+		walk_animation.stop()
+		if velocity.length() > (friction * delta):
+			velocity -= velocity.normalized() * (4*friction * delta)
 		else:
-			velocity += (input * accel * delta)
-			velocity = velocity.limit_length(max_speed)
-			walk_animation.play("default")
-			walk_animation.flip_h = input.x < 0
+			velocity = Vector2.ZERO
+	else:
+		velocity += (input * accel * delta)
+		velocity = velocity.limit_length(max_speed)
+		walk_animation.play("default")
+		walk_animation.flip_h = input.x < 0
 		
-		#if is_p1:
-			#if velocity.x >= 0:											# flips player sprite depending on direction
-				#$Sprite2D.flip_h = 0
-			#else:
-				#$Sprite2D.flip_h = 1
-		#else:
-			#if velocity.x >= 0:											# flips player sprite depending on direction
-				#$Sprite2D.flip_h = 1
-			#else:
-				#$Sprite2D.flip_h = 0
-		
-		move_and_slide()
+	move_and_slide()
 	
 func change_bullet_color():
 	if is_p1:
@@ -94,7 +80,7 @@ func change_bullet_color():
 	fire()
 	
 func fire():											## creates bullet, plays sound
-	if bullet_counter > 0:
+	if not round_over && bullet_counter > 0:
 		var bullet = bullet_scene.instantiate()
 		
 		bullet.get_node("BulletSprite").modulate = bullet_color	
@@ -147,5 +133,5 @@ func death():
 		
 
 func _on_area_2d_area_entered(area: Area2D):
-	if area.is_in_group("bullet"):
+	if not round_over and area.is_in_group("bullet"):
 		death()
