@@ -3,6 +3,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.play_sound("res://audio/countdown.wav")
+	
 	$PointsPlayer1.text = "%s" % Global.points1
 	$PointsPlayer2.text = "%s" % Global.points2
 	
