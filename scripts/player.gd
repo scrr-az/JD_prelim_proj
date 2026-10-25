@@ -93,7 +93,7 @@ func fire():											## creates bullet, plays sound
 		Global.play_sound("res://audio/gunshot.wav")
 		
 		var current_scene = get_tree().current_scene.scene_file_path
-		if current_scene != "res://scenes/main.tscn":
+		if current_scene != "res://scenes/main.tscn" and current_scene != "res://scenes/end_menu.tscn":
 			bullet_counter = bullet_counter-1
 		#print("R: " + str(bullet.rot) + " D: " + str(bullet.dir) + " S: " + str(bullet.speed))
 		#print(str(bullet_counter))

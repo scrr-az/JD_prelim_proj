@@ -12,11 +12,23 @@
 [ext_resource type="Texture2D" uid="uid://b4tcjcovei6sb" path="res://sprites/player1_walk2.png" id="10_xfu11"]
 [ext_resource type="Texture2D" uid="uid://bf8xakfb8evu7" path="res://sprites/grave1.png" id="11_xfu11"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8hn45"]
-size = Vector2(136, 122)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vr6w2"]
-size = Vector2(136, 122)
+size = Vector2(48, 22.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ub6hr"]
+size = Vector2(63.938896, 54.60763)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13ojl"]
+size = Vector2(29, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_03gh4"]
+size = Vector2(43, 45)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7ren"]
+size = Vector2(43, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3fmv"]
+size = Vector2(28.5, 18.5)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vr6w2"]
 animations = [{
@@ -89,11 +101,34 @@ flip_h = true
 collision_layer = 2
 collision_mask = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1725035769]
-shape = SubResource("RectangleShape2D_8hn45")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=631884777]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1922670447]
+position = Vector2(40, 51.375)
 shape = SubResource("RectangleShape2D_vr6w2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=239296312]
+position = Vector2(-44, 48.75)
+shape = SubResource("RectangleShape2D_vr6w2")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D" unique_id=1271534915]
+position = Vector2(3.881195, 8.967688)
+rotation = 0.122173056
+shape = SubResource("RectangleShape2D_ub6hr")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D" unique_id=2140591917]
+position = Vector2(43.5, 22)
+shape = SubResource("RectangleShape2D_13ojl")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Area2D" unique_id=1905388308]
+position = Vector2(6.5, -38.5)
+shape = SubResource("RectangleShape2D_03gh4")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Area2D" unique_id=801998068]
+position = Vector2(46.5, -25)
+shape = SubResource("RectangleShape2D_x7ren")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Area2D" unique_id=1992600125]
+position = Vector2(-25.75, -22.75)
+shape = SubResource("RectangleShape2D_i3fmv")
 
 [node name="SpriteDead" type="AnimatedSprite2D" parent="." unique_id=541512702]
 process_mode = 2
@@ -112,5 +147,35 @@ visible = false
 position = Vector2(3, -4)
 scale = Vector2(0.21568252, 0.2314065)
 texture = ExtResource("11_xfu11")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=631884777]
+position = Vector2(40, 51.375)
+shape = SubResource("RectangleShape2D_vr6w2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=2046684814]
+position = Vector2(-44, 48.750004)
+scale = Vector2(1, 1.0000001)
+shape = SubResource("RectangleShape2D_vr6w2")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=17703140]
+position = Vector2(3.881195, 8.967688)
+rotation = 0.122173056
+shape = SubResource("RectangleShape2D_ub6hr")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="." unique_id=2029061253]
+position = Vector2(43.5, 22)
+shape = SubResource("RectangleShape2D_13ojl")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="." unique_id=58935634]
+position = Vector2(6.5, -38.5)
+shape = SubResource("RectangleShape2D_03gh4")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="." unique_id=1862878224]
+position = Vector2(46.5, -25)
+shape = SubResource("RectangleShape2D_x7ren")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="." unique_id=1799707170]
+position = Vector2(-25.75, -22.75)
+shape = SubResource("RectangleShape2D_i3fmv")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
