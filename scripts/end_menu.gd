@@ -22,10 +22,12 @@ func _ready() -> void:
 	else:
 		$Player1/SpriteGrave.visible = true
 		$Player1/SpriteWalk.visible = false
-		$Player1/Area2D/CollisionShape2D.disabled = true
+		$Player1/Area2D.monitoring = false
+		$Player1/Area2D.monitorable = false
 		$Player2/SpriteGrave.visible = true
 		$Player2/SpriteWalk.visible = false
-		$Player2/Area2D/CollisionShape2D.disabled = true
+		$Player2/Area2D.monitoring = false
+		$Player2/Area2D.monitorable = false
 
 
 func _on_back_area_area_entered(_area: Area2D) -> void:
