@@ -19,7 +19,10 @@ var round_over : bool = false
 
 func _ready() -> void:
 	if not is_p1:
-		$SpriteWalk.flip_h = 1
+		$SpriteWalk.flip_h = true
+		$Hand.rotation_degrees = -180
+		$Hand/HandSprite.flip_v = true
+	#pass
 
 func _physics_process(delta):
 	if is_p1:
@@ -36,11 +39,17 @@ func _physics_process(delta):
 		if rotation != target_angle:									# points hand to angle
 			$Hand.rotation = target_angle
 				
+	if $Hand.rotation_degrees > -90 and $Hand.rotation_degrees < 90:
+		$Hand/HandSprite.flip_v = false
+	else:
+		$Hand/HandSprite.flip_v = true
+	
 	if Input.is_action_just_pressed("p1_shoot") and is_p1:				# p1 shoots
 		change_bullet_color()
 	if Input.is_action_just_pressed("p2_shoot") and not is_p1:			# p2 shoots
 		change_bullet_color()
 			
+	$Hand.rotation_degrees = wrapf($Hand.rotation_degrees, -180.0, 180.0)
 	player_movement(delta)
 
 func get_input():
@@ -82,6 +91,8 @@ func change_bullet_color():
 func fire():											## creates bullet, plays sound
 	if not round_over && bullet_counter > 0:
 		var bullet = bullet_scene.instantiate()
+		
+		#print($Hand.rotation_degrees)
 		
 		bullet.get_node("BulletSprite").modulate = bullet_color	
 		bullet.rot=$Hand.rotation
